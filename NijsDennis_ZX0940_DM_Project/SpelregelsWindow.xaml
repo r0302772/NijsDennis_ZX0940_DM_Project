@@ -1,0 +1,51 @@
+﻿<Window x:Class="NijsDennis_ZX0940_DM_Project.SpelregelsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NijsDennis_ZX0940_DM_Project"
+        mc:Ignorable="d"
+        x:Name="SrWindow"
+        Title="Fantasy Premier League: Spelregels" Height="355" Width="800" FontFamily="Berlin Sans FB">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel Grid.ColumnSpan="3" Margin="5">
+            <Image x:Name="imgPL" Height="61" Width="55" Source="img/PL logo.JPG"/>
+            <Label x:Name="lblTitel" Content="Spelregels" FontSize="35" Foreground="#FF3D195D" VerticalAlignment="Center"/>
+        </DockPanel>
+
+        <GroupBox Background="LightGray" FontSize="15" Margin="5" Grid.Row="1" Grid.ColumnSpan="3" >
+            <GroupBox.Header>
+                <Label x:Name="lblSpelregelsTitel" Content="WELKOM" FontSize="20"/>
+            </GroupBox.Header>
+            <Label  x:Name="lblSpelregelsContent" Content="Selecteer waarover u de regels wil lezen!" Margin="5"/>
+        </GroupBox>
+
+        <StackPanel Grid.Row="1" Grid.Column="3">
+            <Button x:Name="btnTeamKiezen" Content="TEAM KIEZEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnTeamKiezen_Click"/>
+            <Button x:Name="btnTransfers" Content="TRANSFERS" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnTransfers_Click"/>
+            <Button x:Name="btnDeadlines" Content="DEADLINES" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnDeadlines_Click"/>
+            <Button x:Name="btnPunten" Content="PUNTEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnPunten_Click"/>
+        </StackPanel>
+
+        <Label Height="40" Grid.Row="6"/>
+
+        <DockPanel Height="auto" Grid.Row="3" Grid.Column="3">
+            <Button x:Name="btnSluiten" Content="SLUITEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnSluiten_Click"/>
+        </DockPanel>
+
+    </Grid>
+</Window>

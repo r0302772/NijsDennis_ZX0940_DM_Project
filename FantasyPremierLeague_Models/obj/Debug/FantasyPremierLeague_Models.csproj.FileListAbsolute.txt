@@ -1,0 +1,12 @@
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\FantasyPremierLeague_Models.dll
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\FantasyPremierLeague_Models.pdb
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\obj\Debug\FantasyPremierLeague_Models.csproj.AssemblyReference.cache
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\obj\Debug\FantasyPremierLeague_Models.csproj.CoreCompileInputs.cache
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\obj\Debug\FantasyPremierLeague_Models.dll
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\obj\Debug\FantasyPremierLeague_Models.pdb
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\MaterialDesignColors.dll
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\MaterialDesignThemes.Wpf.dll
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\MaterialDesignColors.pdb
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\MaterialDesignThemes.Wpf.pdb
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\bin\Debug\MaterialDesignThemes.Wpf.xml
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_Models\obj\Debug\FantasyPremierLeague_Models.csproj.CopyComplete
