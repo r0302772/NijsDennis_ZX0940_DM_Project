@@ -1,0 +1,29 @@
+CREATE TABLE Clubs(
+    ID int NOT NULL,
+    Clubnaam nvarchar(50) NOT NULL,
+    Afkorting nvarchar(3), NOT NULL,
+    Stadion nvarchar(50) NOT NULL,
+    Stad nvarchar(50) NOT NULL,
+    CONSTRAINT PK_Club PRIMARY KEY (ID)
+);
+
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Arsenal','ARS','Emirates Stadium','London');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Aston Villa','AVL','Villa Park','Birmingham');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Brentford','BRE','Brentford Community Stadium','London');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Brighton & Hove Albion','BHA','The Amex','Brighton');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Burnley','BUR','Turf Moor','Burnley');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Chelsea','CHE','Stamford Bridge','London');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Crystal Palace','CRY','Selhurst Park','London');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Everton','EVE','Goodison Park','Liverpool');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Leeds United','LEE','Elland Road','Leeds');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Leicester City','LEI','King Power Stadium','Leicester');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Liverpool','LIV','Anfield','Liverpool');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Manchester City','MCI','Etihad Stadium','Manchester');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Manchester United','MUN','Old Trafford','Manchester');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Newcastle United','NEW','St James Park','Newcastle');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Norwich City','NOR','Carrow Road','Norwich');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Southampton','SOU','St Marys Stadium','Southampton');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Tottenham Hotspur','TOT','Tottenham Hotspur Stadium','London');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Watford','WAT','Vicarage Road','Watford');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('West Ham United','WHU','London Stadium','London');
+INSERT INTO Clubs (Clubnaam, Afkorting, Stadion, Stad) VALUES ('Wolverhampton Wanderers','WOL','Molineux Stadium','Wolverhampton');
