@@ -29,10 +29,13 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="#"></DataGridTextColumn>
                 <DataGridTextColumn Header="Speler"></DataGridTextColumn>
-                <DataGridTextColumn Header="Teamnaam"></DataGridTextColumn>
-                <DataGridTextColumn Header="Waarde"></DataGridTextColumn>
-                <DataGridTextColumn Header="Punten Gameweek"></DataGridTextColumn>
-                <DataGridTextColumn Header="Totaal Punten"></DataGridTextColumn>
+                <DataGridTextColumn Header="Clubnaam"></DataGridTextColumn>
+                <DataGridTextColumn Header="Positie"></DataGridTextColumn>
+                <DataGridTextColumn Header="Goals"></DataGridTextColumn>
+                <DataGridTextColumn Header="Assists"></DataGridTextColumn>
+                <DataGridTextColumn Header="Gele Kaart"></DataGridTextColumn>
+                <DataGridTextColumn Header="Rode Kaart"></DataGridTextColumn>
+                <DataGridTextColumn Header="Owngoals"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 

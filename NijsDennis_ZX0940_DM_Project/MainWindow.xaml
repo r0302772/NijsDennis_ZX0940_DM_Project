@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NijsDennis_ZX0940_DM_Project"
         mc:Ignorable="d"
-        Title="Fantasy Premier League" Height="630" Width="960" FontFamily="Berlin Sans FB">
+        Title="Premier League" Height="400" Width="960" FontFamily="Berlin Sans FB">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -19,126 +18,40 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-            <RowDefinition/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
 
-        <DockPanel Grid.ColumnSpan="3" Margin="5">
+        <DockPanel Grid.ColumnSpan="2" Margin="5">
             <Image x:Name="imgPL"  Height="61" Width="55" Source="img/PL logo.JPG"/>
-            <Label x:Name="lblTitel" Content="Fantasy Premier League" FontSize="35" Foreground="#FF3D195D" VerticalAlignment="Center"/>
+            <Label x:Name="lblTitel" Content="Premier League" FontSize="35" Foreground="#FF3D195D" VerticalAlignment="Center"/>
         </DockPanel>
 
-        <Label x:Name="lblDeadline" Content="GAMEWEEK 15" FontSize="25" Grid.Column="3" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
-
-
-        <GroupBox Background="LightGray" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" Margin="5">
+        <GroupBox Background="LightGray" Grid.Row="2" Grid.ColumnSpan="4" FontSize="15" Margin="5" MinHeight="150">
             <GroupBox.Header>
-                <Label Content="IK WIL MEEDOEN" FontSize="20"/>
-            </GroupBox.Header>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel>
-                    <DockPanel>
-                        <Label Content="Voornaam:" Margin="5"/>
-                        <TextBox  x:Name="txtVoornaam"  Margin="5"/>
-                    </DockPanel>
-                    <DockPanel>
-                        <Label Content="Email:" Margin="5" Grid.Row="1"/>
-                        <TextBox  x:Name="txtEmail"  Margin="5" Grid.Column="1" Grid.Row="1"/>
-                    </DockPanel>
-                    <DockPanel>
-                        <Label Content="GSM:" Margin="5"/>
-                        <TextBox  x:Name="txtGSM"  Margin="5" Grid.Column="1"/>
-                    </DockPanel>
-                    <DockPanel>
-                        <Label Content="Teamnaam:" Margin="5"/>
-                        <TextBox  x:Name="txtTeamnaamNieuw"  Margin="5" Grid.Column="1"/>
-                    </DockPanel>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <DockPanel>
-                        <Label Content="Achternaam:" Margin="5"/>
-                        <TextBox  x:Name="txtAchternaam"  Margin="5"/>
-                    </DockPanel>
-                    <DockPanel>
-                        <Label Content="Land:" Margin="5" Grid.Column="2" Grid.Row="1"/>
-                        <TextBox  x:Name="txtLand"  Margin="5" Grid.Column="3" Grid.Row="1"/>
-                    </DockPanel>
-                    <DockPanel>
-                        <Label Content="Geslacht:" Margin="5" Grid.Column="2"/>
-                        <RadioButton x:Name="rbMan" Content="Man" VerticalAlignment="Center" Margin="2"/>
-                        <RadioButton x:Name="rbVrouw" Content="Vrouw" VerticalAlignment="Center" Margin="2"/>
-                        <RadioButton x:Name="rbNonbinair" Content="Non-Binair" VerticalAlignment="Center" Margin="2"/>
-                    </DockPanel>
-                    <!--<DockPanel>
-                        <Label  x:Name="lblWachtwoordNieuw" Content="Wachtwoord:" Margin="5" Grid.Column="2"/>
-                        <TextBox  x:Name="txtWachtwoordNieuw"  Margin="5" Grid.Column="3"/>
-                    </DockPanel>-->
-                </StackPanel>
-
-            </Grid>
-        </GroupBox>
-
-        <StackPanel Grid.Column="4" Grid.Row="1" VerticalAlignment="Bottom">
-            <Button x:Name="btnSpelregels" Content="SPELREGELS" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnSpelregels_Click"/>
-            <Button x:Name="btnRegistreren" Content="REGISTREREN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Click="btnRegistreren_Click"/>
-        </StackPanel>
-
-
-        <GroupBox Background="LightGray" Grid.Row="2" Grid.ColumnSpan="4" FontSize="15" Margin="5">
-            <GroupBox.Header>
-                <Label Content="IK HEB AL EEN TEAM" FontSize="20"/>
-            </GroupBox.Header>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <StackPanel>
-                    <DockPanel>
-                        <Label  x:Name="lblTeamnaamOud" Content="Teamnaam:" Margin="5"/>
-                        <TextBox  x:Name="txtTeamnaamOud"  Margin="5"/>
-                    </DockPanel>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <DockPanel>
-                        <Label Content="Volledige naam:" Margin="5" Grid.Column="2" Grid.Row="1"/>
-                        <TextBox  x:Name="txtWachtwoordOud"  Margin="5" Grid.Column="3" Grid.Row="1"/>
-                    </DockPanel>
-                </StackPanel>
-
-            </Grid>
-        </GroupBox>
-
-        <Button x:Name="btnBekijkTeam" Content="BEKIJK TEAM" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="4" Grid.Row="2" VerticalAlignment="Bottom" Click="btnBekijkTeam_Click"/>
-
-
-        <GroupBox Background="LightGray" Grid.Row="3" Grid.ColumnSpan="4" FontSize="15" Margin="5" MinHeight="150">
-            <GroupBox.Header>
-                <Label Content="HOOFDKLASSEMENT" FontSize="20"/>
+                <Label Content="RANGSCHIKKING" FontSize="20"/>
             </GroupBox.Header>
             <DataGrid Background="LightGray" BorderThickness="0">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="#"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Fantasyteam"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Managernaam"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Totaal Punten"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Team"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Winst"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Gelijkspel"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Verlies"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Doelpunten Voor"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Doelpunten Tegen"></DataGridTextColumn>
+                    <DataGridTextColumn Header="Punten"></DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
 
-        <Button x:Name="btnBekijkKlassement" Grid.Row="3" Grid.Column="4" Content="BEKIJK"  FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" VerticalAlignment="Bottom" Click="btnBekijkKlassement_Click"/>
+        <Button x:Name="btnBekijkRangschikking" Grid.Row="3" Grid.ColumnSpan="4" Content="BEKIJK VOLLEDIGE RANGSCHIKKING"  FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" VerticalAlignment="Bottom" Click="btnBekijkRangschikking_Click"/>
 
 
-        <Button x:Name="btnMatchUitslagen" Content="MATCHEN &amp; UITSLAGEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="5" Click="btnMatchUitslagen_Click"/>
-        <Button x:Name="btnBekijkStatistieken" Content="BEKIJK STATISTIEKEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="5" Grid.Column="2" Click="btnBekijkStatistieken_Click"/>
+        <Button x:Name="btnMatchUitslagen" Content="MATCHEN &amp; UITSLAGEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="4" Click="btnMatchUitslagen_Click"/>
+        <Button x:Name="btnBekijkStatistieken" Content="BEKIJK SPELER STATISTIEKEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="2" Click="btnBekijkStatistieken_Click"/>
         <Button x:Name="btnSluiten" Content="SLUITEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="4" Grid.Row="5" Click="btnSluiten_Click"/>
 
     </Grid>

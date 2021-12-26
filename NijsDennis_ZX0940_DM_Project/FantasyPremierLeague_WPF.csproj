@@ -63,6 +63,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FantasyPremierLeagueWindow.xaml.cs">
+      <DependentUpon>FantasyPremierLeagueWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="KlassementWindow.xaml.cs">
       <DependentUpon>KlassementWindow.xaml</DependentUpon>
     </Compile>
@@ -78,6 +81,10 @@
     <Compile Include="TeamWindow.xaml.cs">
       <DependentUpon>TeamWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="FantasyPremierLeagueWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="KlassementWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -35,3 +35,5 @@ C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod Da
 C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\MaterialDesignThemes.Wpf.xml
 C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\StatistiekenWindow.g.cs
 C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\StatistiekenWindow.baml
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\FantasyPremierLeagueWindow.g.cs
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\FantasyPremierLeagueWindow.baml

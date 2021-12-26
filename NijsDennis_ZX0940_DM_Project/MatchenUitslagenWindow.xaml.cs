@@ -34,7 +34,7 @@ namespace NijsDennis_ZX0940_DM_Project
 
         }
 
-        private void btnVolgendeSpeeldag_Click(object sender, RoutedEventArgs e)
+        private void btnVolgendeGameweek_Click(object sender, RoutedEventArgs e)
         {
 
         }
@@ -63,5 +63,7 @@ namespace NijsDennis_ZX0940_DM_Project
         {
             this.Close();
         }
+
+
     }
 }

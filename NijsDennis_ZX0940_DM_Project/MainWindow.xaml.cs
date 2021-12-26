@@ -27,26 +27,7 @@ namespace NijsDennis_ZX0940_DM_Project
             InitializeComponent();
         }
 
-        private void btnSpelregels_Click(object sender, RoutedEventArgs e)
-        {
-            SpelregelsWindow spelregelsWindow = new SpelregelsWindow();
-            spelregelsWindow.Show();
-
-        }
-
-        private void btnRegistreren_Click(object sender, RoutedEventArgs e)
-        {
-            TeamWindow teamWindow = new TeamWindow();
-            teamWindow.Show();
-        }
-
-        private void btnBekijkTeam_Click(object sender, RoutedEventArgs e)
-        {
-            TeamWindow teamWindow = new TeamWindow();
-            teamWindow.Show();
-        }
-
-        private void btnBekijkKlassement_Click(object sender, RoutedEventArgs e)
+        private void btnBekijkRangschikking_Click(object sender, RoutedEventArgs e)
         {
             KlassementWindow klassementWindow = new KlassementWindow();
             klassementWindow.Show();
@@ -68,5 +49,7 @@ namespace NijsDennis_ZX0940_DM_Project
         {
             App.Current.Shutdown();
         }
+
+
     }
 }
