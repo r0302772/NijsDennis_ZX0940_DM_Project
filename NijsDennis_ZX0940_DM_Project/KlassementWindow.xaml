@@ -31,16 +31,17 @@
 
 
         <DataGrid Background="LightGray" BorderThickness="1" BorderBrush="#FF3D195D" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" Margin="5">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="#"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Fantasyteam"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Managernaam"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Punten Gameweek"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Totaal Punten"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Puntenverschil 1e"></DataGridTextColumn>
-                    <DataGridCheckBoxColumn></DataGridCheckBoxColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="#"></DataGridTextColumn>
+                <DataGridTextColumn Header="Team"></DataGridTextColumn>
+                <DataGridTextColumn Header="Winst"></DataGridTextColumn>
+                <DataGridTextColumn Header="Gelijkspel"></DataGridTextColumn>
+                <DataGridTextColumn Header="Verlies"></DataGridTextColumn>
+                <DataGridTextColumn Header="Doelpunten Voor"></DataGridTextColumn>
+                <DataGridTextColumn Header="Doelpunten Tegen"></DataGridTextColumn>
+                <DataGridTextColumn Header="Punten"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
 
 
 
