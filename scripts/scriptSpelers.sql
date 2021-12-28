@@ -3,7 +3,7 @@
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Bernd', 'Leno', 'D', '1', 1);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Aaron', 'Ramsdale', 'D', '32', 1);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Calum', 'Chambers', 'V', '21', 1);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Gabriel', 'V', '6', 1);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Gabriel', 'V', '6', 1);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Rob', 'Holding', 'V', '16', 1);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Sead', 'Kolasinac', 'V', '31', 1);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ainsley', 'Maitland-Niles', 'V', '15', 1);
@@ -50,7 +50,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Leon', 'Bailey', 'A', '31', 2);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Keinan', 'Davis', 'A', '9', 2);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Danny', 'Ings', 'A', '20', 2);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jaden', 'Philogene-Bidace', '32', 'A', 2);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jaden', 'Philogene-Bidace', 'A', '32', 2);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Bertrand', 'Traore', 'A', '15', 2);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ollie', 'Watkins', 'A', '11', 2);
 
@@ -144,7 +144,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ross', 'Barkley', 'M', '18', 6);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Kai', 'Havertz', 'M', '29', 6);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Callum', 'Hudson-Odoi', 'M', '20', 6);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Jorginho', 'M', '5', 6);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Jorginho', 'M', '5', 6);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('N Golo', 'Kante', 'M', '7', 6);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Mateo', 'Kovacic', 'M', '8', 6);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ruben', 'Loftus-Cheek', 'M', '12', 6);
@@ -158,7 +158,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 --Crystal Palace
 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jack', 'Butland', 'D', '1', 7);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Guaita', 'D', '13', 7);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Guaita', 'D', '13', 7);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Joachim', 'Andersen', 'V', '16', 7);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Nathaniel', 'Clyne', 'V', '17', 7);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Marc', 'Guehi', 'V', '6', 7);
@@ -193,7 +193,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Michael', 'Keane', 'V', '5', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jonjoe', 'Kenny', 'V', '2', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Yerry', 'Mina', 'V', '13', 8);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Allan', 'M', '6', 8);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Allan', 'M', '6', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Tom', 'Davies', 'M', '26', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Fabian', 'Delph', 'M', '8', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Abdoulaye', 'Doucoure', 'M', '16', 8);
@@ -207,7 +207,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Anthony', 'Gordon', 'A', '24', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Demarai', 'Gray', 'A', '11', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Alex', 'Iwobi', 'A', '17', 8);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Richarlison', 'A', '7', 8);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Richarlison', 'A', '7', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Salomon', 'Rondon', 'A', '33', 8);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Cenk', 'Tosun', 'A', '20', 8);
 
@@ -234,9 +234,9 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Patrick', 'Bamford', 'A', '9', 9);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Joe', 'Gelhardt', 'A', '30', 9);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Liam', 'McCarron', 'A', '3', 9);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Raphinha', 'A', '10', 9);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Raphinha', 'A', '10', 9);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Tyler', 'Roberts', 'A', '11', 9);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Rodrigo', 'A', '19', 9);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Rodrigo', 'A', '19', 9);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Crysencio', 'Summerville', 'A', '38', 9);
 
 --Leicester City
@@ -267,7 +267,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 
 --Liverpool
 
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Alisson', 'D', '1', 11);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Alisson', 'D', '1', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Caoimhin', 'Kelleher', 'D', '62', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Trent', 'Alexander-Arnold', 'V', '66', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Joe', 'Gomez', 'V', '12', 11);
@@ -277,14 +277,14 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Konstantinos', 'Tsimikas', 'V', '21', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Neco', 'Williams', 'V', '76', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Virgil', 'van Dijk', 'V', '4', 11);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Fabinho', 'M', '3', 11);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Fabinho', 'M', '3', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jordan', 'Henderson', 'M', '14', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Curtis', 'Jones', 'M', '17', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Naby', 'Keita', 'M', '8', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('James', 'Milner', 'M', '7', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Tyler', 'Morton', 'M', '80', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Alex', 'Oxlade-Chamberlain', 'M', '15', 11);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Thiago', 'M', '6', 11);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Thiago', 'M', '6', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Diogo', 'Jota', 'A', '20', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Harvey', 'Elliott', 'A', '67', 11);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Roberto', 'Firmino', 'A', '9', 11);
@@ -295,7 +295,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 
 --Manchester City
 
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Ederson', 'D', '31', 12);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Ederson', 'D', '31', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Zackary', 'Steffen', 'D', '13', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Nathan', 'Ake', 'V', '6', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Joao', 'Cancelo', 'V', '27', 12);
@@ -306,13 +306,13 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Kyle', 'Walker', 'V', '2', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Oleksandr', 'Zinchenko', 'V', '11', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Kevin', 'De Bruyne', 'M', '17', 12);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Fernandinho', 'M', '25', 12);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Fernandinho', 'M', '25', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Phil', 'Foden', 'M', '47', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jack', 'Grealish', 'M', '10', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ilkay', 'Gundogan', 'M', '8', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('James', 'McAtee', 'M', '11', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Cole', 'Palmer', 'M', '80', 12);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Rodri', 'M', '16', 12);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Rodri', 'M', '16', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Bernardo', 'Silva', 'M', '20', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Gabriel', 'Jesus', 'A', '9', 12);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Riyad', 'Mahrez', 'A', '26', 12);
@@ -331,7 +331,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Raphael', 'Varane', 'V', '19', 13);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Aaron', 'Wan-Bissaka', 'V', '29', 13);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Bruno', 'Fernandes', 'M', '18', 13);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Fred', 'M', '17', 13);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Fred', 'M', '17', 13);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jesse', 'Lingard', 'M', '14', 13);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Nemanja', 'Matic', 'M', '31', 13);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Scott', 'McTominay', 'M', '39', 13);
@@ -367,7 +367,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jonjo', 'Shelvey', 'M', '8', 14);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Joe', 'Willock', 'M', '28', 14);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Dwight', 'Gayle', 'A', '34', 14);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Joelinton', 'A', '7', 14);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Joelinton', 'A', '7', 14);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jacob', 'Murphy', 'A', '23', 14);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Callum', 'Wilson', 'A', '9', 14);
 
@@ -404,7 +404,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Alex', 'McCarthy', 'D', '1', 16);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jan', 'Bednarek', 'V', '35', 16);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Valentino', 'Livramento', 'V', '21', 16);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Lyanco', 'V', '4', 16);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Lyanco', 'V', '4', 16);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Romain', 'Perraud', 'V', '15', 16);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Mohammed', 'Salisu', 'V', '22', 16);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jack', 'Stephens', 'V', '5', 16);
@@ -441,7 +441,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Eric', 'Dier', 'M', '15', 17);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Pierre-Emile', 'Hojbjerg', 'M', '5', 17);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Giovani', 'Lo Celso', 'M', '18', 17);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Lucas Moura', 'M', '27', 17);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Lucas Moura', 'M', '27', 17);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Tanguy', 'Ndombele', 'M', '28', 17);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Oliver', 'Skipp', 'M', '29', 17);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Harry', 'Winks', 'M', '8', 17);
@@ -455,7 +455,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ben', 'Foster', 'D', '1', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Craig', 'Cathcart', 'V', '15', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Christian', 'Kabasele', 'V', '27', 18);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Kiko', 'V', '21', 18);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Kiko', 'V', '21', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Adam', 'Masina', 'V', '11', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Nicolas', 'N Koulou', 'V', '13', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Jeremy', 'Ngakia', 'V', '2', 18);
@@ -470,7 +470,7 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ken', 'Sema', 'M', '12', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Moussa', 'Sissoko', 'M', '19', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ozan', 'Tufan', 'M', '18', 18);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Cucho', 'A', '29', 18);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Cucho', 'A', '29', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Emmanuel', 'Dennis', 'A', '25', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Ashley', 'Fletcher', 'A', '17', 18);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Joshua', 'King', 'A', '7', 18);
@@ -519,4 +519,4 @@ INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES 
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Daniel', 'Podence', 'A', '10', 20);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Fabio', 'Silva', 'A', '17', 20);
 INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('Adama', 'Traore', 'A', '37', 20);
-INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES ('', 'Trincao', 'A', '11', 20);
+INSERT INTO Spelers (Voornaam, Achternaam, Positie, Shirtnummer, ClubID) VALUES (NULL, 'Trincao', 'A', '11', 20);

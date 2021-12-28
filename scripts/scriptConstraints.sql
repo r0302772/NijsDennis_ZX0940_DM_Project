@@ -5,28 +5,38 @@ ALTER TABLE Clubs
 ADD CONSTRAINT PK_Club PRIMARY KEY (ClubID);
 
 ALTER TABLE Clubstats
-ADD CONSTRAINT PK_Clubstats PRIMARY KEY (ClubstatsID),
-ADD CONSTRAINT FK_ClubstatsClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID),
+ADD CONSTRAINT PK_Clubstats PRIMARY KEY (ClubstatsID);
+ALTER TABLE Clubstats
+ADD CONSTRAINT FK_ClubstatsClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID);
+ALTER TABLE Clubstats
 ADD CONSTRAINT FK_ClubstatsSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID);
 
 ALTER TABLE Spelers
-ADD CONSTRAINT PK_Speler PRIMARY KEY (SpelerID),
+ADD CONSTRAINT PK_Speler PRIMARY KEY (SpelerID);
+ALTER TABLE Spelers
 ADD CONSTRAINT FK_SpelerClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID);
 
 ALTER TABLE Spelerstats
-ADD CONSTRAINT PK_Spelerstats PRIMARY KEY (SpelerstatsID),
-ADD CONSTRAINT FK_SpelerstatsSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID),
+ADD CONSTRAINT PK_Spelerstats PRIMARY KEY (SpelerstatsID);
+ALTER TABLE Spelerstats
+ADD CONSTRAINT FK_SpelerstatsSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID);
+ALTER TABLE Spelerstats
 ADD CONSTRAINT FK_SpelerstatsSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID);
 
 ALTER TABLE Wedstrijden
-ADD CONSTRAINT PK_Wedstrijd PRIMARY KEY (WedstrijdID),
-ADD CONSTRAINT FK_WedstrijdThuisClubID FOREIGN KEY (ThuisClubID) REFERENCES Clubs(ClubID),
-ADD CONSTRAINT FK_WedstrijdUitClubID FOREIGN KEY (UitClubID) REFERENCES Clubs(ClubID),
+ADD CONSTRAINT PK_Wedstrijd PRIMARY KEY (WedstrijdID);
+ALTER TABLE Wedstrijden
+ADD CONSTRAINT FK_WedstrijdThuisClubID FOREIGN KEY (ThuisClubID) REFERENCES Clubs(ClubID);
+ALTER TABLE Wedstrijden
+ADD CONSTRAINT FK_WedstrijdUitClubID FOREIGN KEY (UitClubID) REFERENCES Clubs(ClubID);
+ALTER TABLE Wedstrijden
 ADD CONSTRAINT FK_WedstrijdSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID);
 
 ALTER TABLE SpelerWedstrijd
-ADD CONSTRAINT PK_SpelerWedstrijd PRIMARY KEY (SpelerWedstrijdID),
-ADD CONSTRAINT FK_SpelerWedstrijdSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID),
+ADD CONSTRAINT PK_SpelerWedstrijd PRIMARY KEY (SpelerWedstrijdID);
+ALTER TABLE SpelerWedstrijd
+ADD CONSTRAINT FK_SpelerWedstrijdSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID);
+ALTER TABLE SpelerWedstrijd
 ADD CONSTRAINT FK_SpelerWedstrijdWedstrijdID FOREIGN KEY (WedstrijdID) REFERENCES Wedstrijden(WedstrijdID);
 
 /* ALTER TABLE Datums

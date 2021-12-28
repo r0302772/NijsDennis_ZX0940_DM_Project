@@ -379,7 +379,7 @@ INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClu
 
 INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 2, NULL, NULL, 1);
 INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 5, NULL, NULL, 16);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 10, NULL, NULL, )3;
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 10, NULL, NULL, 3);
 INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 11, NULL, NULL, 13);
 INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 12, NULL, NULL, 4);
 INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 30, 14, NULL, NULL, 7);

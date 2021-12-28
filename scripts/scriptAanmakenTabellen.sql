@@ -30,7 +30,7 @@ CREATE TABLE Spelers(
     Voornaam nvarchar(50),
     Achternaam nvarchar(50) NOT NULL,
     Positie nvarchar(1) NOT NULL,
-    Shirtnummer nvarchar(1) NOT NULL,
+    Shirtnummer nvarchar(2) NOT NULL,
     ClubID int NOT NULL
 );
 
