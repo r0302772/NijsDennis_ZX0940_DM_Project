@@ -1,0 +1,1 @@
+INSERT INTO SpelerWedstrijd(Doelpunt, Assist, GeleKaart, RodeKaart, Owngoal, SpelerID, WedstrijdID) VALUES ();

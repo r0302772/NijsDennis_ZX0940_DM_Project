@@ -2,7 +2,8 @@ CREATE TABLE Seizoenen(
     SeizoenID int IDENTITY(1,1),
     SeizoenNaam nvarchar(50),
     Begindatum date NOT NULL,
-    Einddatum date NOT NULL
+    Einddatum date NOT NULL,
+    CONSTRAINT PK_Seizoen PRIMARY KEY (SeizoenID)
 );
 
 CREATE TABLE Clubs(
@@ -25,8 +26,8 @@ CREATE TABLE Clubstats(
     ClubID int NOT NULL,
     SeizoenID int NOT NULL,
     CONSTRAINT PK_Clubstats PRIMARY KEY (ClubstatsID),
-    CONSTRAINT FK_ClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID),
-    CONSTRAINT FK_SeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID)
+    CONSTRAINT FK_ClubstatsClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID),
+    CONSTRAINT FK_ClubstatsSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID)
 );
 
 CREATE TABLE Spelers(
@@ -37,7 +38,7 @@ CREATE TABLE Spelers(
     Shirtnummer nvarchar(1) NOT NULL,
     ClubID int NOT NULL,
     CONSTRAINT PK_Speler PRIMARY KEY (SpelerID),
-    CONSTRAINT FK_ClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID)
+    CONSTRAINT FK_SpelerClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID)
 );
 
 CREATE TABLE Spelerstats(
@@ -50,22 +51,22 @@ CREATE TABLE Spelerstats(
     SpelerID int NOT NULL,
     SeizoenID int NOT NULL,
     CONSTRAINT PK_Spelerstats PRIMARY KEY (SpelerstatsID),
-    CONSTRAINT FK_SpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID),
-    CONSTRAINT FK_SeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID)
+    CONSTRAINT FK_SpelerstatsSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID),
+    CONSTRAINT FK_SpelerstatsSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID)
 );
 
 CREATE TABLE Wedstrijden(
-    WedstrijdID int IDENTITY(1,1),
+    WedstrijdID int IDENTITY(1,1),   
+    SeizoenID int NOT NULL,
     Speeldag int NOT NULL,
     ThuisClubID int NOT NULL,
     ThuisClubScore int,
     UitClubScore int,   
     UitClubID int NOT NULL,
-    SeizoenID int NOT NULL,
     CONSTRAINT PK_Wedstrijd PRIMARY KEY (WedstrijdID),
-    CONSTRAINT FK_ThuisClubID FOREIGN KEY (ThuisClubID) REFERENCES Clubs(ClubID),
-    CONSTRAINT FK_UitClubID FOREIGN KEY (UitClubID) REFERENCES Clubs(ClubID),
-    CONSTRAINT FK_SeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID)
+    CONSTRAINT FK_WedstrijdThuisClubID FOREIGN KEY (ThuisClubID) REFERENCES Clubs(ClubID),
+    CONSTRAINT FK_WedstrijdUitClubID FOREIGN KEY (UitClubID) REFERENCES Clubs(ClubID),
+    CONSTRAINT FK_WedstrijdSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID)
 );
 
 CREATE TABLE SpelerWedstrijd(
@@ -78,8 +79,8 @@ CREATE TABLE SpelerWedstrijd(
     SpelerID int NOT NULL,
     WedstrijdID int NOT NULL,  
     CONSTRAINT PK_SpelerWedstrijd PRIMARY KEY (SpelerWedstrijdID),
-    CONSTRAINT FK_SpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID),
-    CONSTRAINT FK_WedstrijdID FOREIGN KEY (WedstrijdID) REFERENCES Wedstrijden(WedstrijdID)
+    CONSTRAINT FK_SpelerWedstrijdSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID),
+    CONSTRAINT FK_SpelerWedstrijdWedstrijdID FOREIGN KEY (WedstrijdID) REFERENCES Wedstrijden(WedstrijdID)
 );
 
 /* CREATE TABLE Datums(
