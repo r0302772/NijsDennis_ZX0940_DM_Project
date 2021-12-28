@@ -1,0 +1,1 @@
+INSERT INTO Seizoenen(SeizoenNaam, Begindatum, Einddatum) VALUES ('Seizoen 2021/2022','2021-08-13','2022-05-22')
