@@ -38,9 +38,11 @@ namespace NijsDennis_ZX0940_DM_Project
             StatistiekenWindow statistiekenWindow = new StatistiekenWindow();
             statistiekenWindow.Show();
         }
+
         private void btnSpelerMenu_Click(object sender, RoutedEventArgs e)
         {
-
+            SpelerMenuWindow spelerMenuWindow = new SpelerMenuWindow();
+            spelerMenuWindow.Show();
         }
 
         private void btnSluiten_Click(object sender, RoutedEventArgs e)

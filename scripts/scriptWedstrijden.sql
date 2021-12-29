@@ -1,15 +1,15 @@
 --Speeldag 1
 
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 3, NULL, NULL, 1);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 5, NULL, NULL, 4);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 6, NULL, NULL, 7);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 8, NULL, NULL, 16);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 10, NULL, NULL, 20);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 13, NULL, NULL, 9);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 15, NULL, NULL, 11);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 18, NULL, NULL, 2);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 14, NULL, NULL, 19);
-INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 17, NULL, NULL, 12);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 3, 2, 0, 1);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 5, 1, 2, 4);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 6, 3, 0, 7);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 8, 3, 1, 16);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 10, 1, 0, 20);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 13, 5, 1, 9);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 15, 0, 3, 11);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 18, 3, 2, 2);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 14, 2, 4, 19);
+INSERT INTO Wedstrijden(SeizoenID, Speeldag, ThuisClubID, ThuisClubScore, UitClubScore, UitClubID) VALUES (1, 1, 17, 1, 0, 12);
 
 --Speeldag 2
 

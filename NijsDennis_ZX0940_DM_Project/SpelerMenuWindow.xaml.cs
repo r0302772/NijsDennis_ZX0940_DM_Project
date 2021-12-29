@@ -23,5 +23,25 @@ namespace NijsDennis_ZX0940_DM_Project
         {
             InitializeComponent();
         }
+
+        private void btnZoeken_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSpelerAanpassen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSpelerToevoegen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnSluiten_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

@@ -84,6 +84,7 @@
                 <DataGridTextColumn Header="Assist(s)"></DataGridTextColumn>
                 <DataGridTextColumn Header="Gele Kaart"></DataGridTextColumn>
                 <DataGridTextColumn Header="Rode Kaart"></DataGridTextColumn>
+                <DataGridTextColumn Header="Owngoal(s)"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
 
