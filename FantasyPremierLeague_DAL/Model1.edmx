@@ -1,0 +1,653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PremierLeagueModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clubs">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Clubnaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Afkorting" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Stadion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Stad" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clubstats">
+          <Key>
+            <PropertyRef Name="ClubstatsID" />
+          </Key>
+          <Property Name="ClubstatsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Winst" Type="int" />
+          <Property Name="Gelijk" Type="int" />
+          <Property Name="Verlies" Type="int" />
+          <Property Name="DoelpuntVoor" Type="int" />
+          <Property Name="DoelpuntTegen" Type="int" />
+          <Property Name="Punten" Type="int" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="SeizoenID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seizoenen">
+          <Key>
+            <PropertyRef Name="SeizoenID" />
+          </Key>
+          <Property Name="SeizoenID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeizoenNaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Begindatum" Type="date" Nullable="false" />
+          <Property Name="Einddatum" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spelers">
+          <Key>
+            <PropertyRef Name="SpelerID" />
+          </Key>
+          <Property Name="SpelerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Voornaam" Type="nvarchar" MaxLength="50" />
+          <Property Name="Achternaam" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Positie" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="Shirtnummer" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Spelerstats">
+          <Key>
+            <PropertyRef Name="SpelerstatsID" />
+          </Key>
+          <Property Name="SpelerstatsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doelpunt" Type="int" />
+          <Property Name="Assist" Type="int" />
+          <Property Name="GeleKaart" Type="int" />
+          <Property Name="RodeKaart" Type="int" />
+          <Property Name="Owngoal" Type="int" />
+          <Property Name="SpelerID" Type="int" Nullable="false" />
+          <Property Name="SeizoenID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpelerWedstrijd">
+          <Key>
+            <PropertyRef Name="SpelerWedstrijdID" />
+          </Key>
+          <Property Name="SpelerWedstrijdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Doelpunt" Type="int" />
+          <Property Name="Assist" Type="int" />
+          <Property Name="GeleKaart" Type="int" />
+          <Property Name="RodeKaart" Type="int" />
+          <Property Name="Owngoal" Type="int" />
+          <Property Name="SpelerID" Type="int" Nullable="false" />
+          <Property Name="WedstrijdID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Wedstrijden">
+          <Key>
+            <PropertyRef Name="WedstrijdID" />
+          </Key>
+          <Property Name="WedstrijdID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeizoenID" Type="int" Nullable="false" />
+          <Property Name="Speeldag" Type="int" Nullable="false" />
+          <Property Name="ThuisClubID" Type="int" Nullable="false" />
+          <Property Name="ThuisClubScore" Type="int" />
+          <Property Name="UitClubScore" Type="int" />
+          <Property Name="UitClubID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ClubstatsClubID">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+          <End Role="Clubstats" Type="Self.Clubstats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Clubstats">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubstatsSeizoenID">
+          <End Role="Seizoenen" Type="Self.Seizoenen" Multiplicity="1" />
+          <End Role="Clubstats" Type="Self.Clubstats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seizoenen">
+              <PropertyRef Name="SeizoenID" />
+            </Principal>
+            <Dependent Role="Clubstats">
+              <PropertyRef Name="SeizoenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerClubID">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+          <End Role="Spelers" Type="Self.Spelers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Spelers">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerstatsSeizoenID">
+          <End Role="Seizoenen" Type="Self.Seizoenen" Multiplicity="1" />
+          <End Role="Spelerstats" Type="Self.Spelerstats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seizoenen">
+              <PropertyRef Name="SeizoenID" />
+            </Principal>
+            <Dependent Role="Spelerstats">
+              <PropertyRef Name="SeizoenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerstatsSpelerID">
+          <End Role="Spelers" Type="Self.Spelers" Multiplicity="1" />
+          <End Role="Spelerstats" Type="Self.Spelerstats" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spelers">
+              <PropertyRef Name="SpelerID" />
+            </Principal>
+            <Dependent Role="Spelerstats">
+              <PropertyRef Name="SpelerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerWedstrijdSpelerID">
+          <End Role="Spelers" Type="Self.Spelers" Multiplicity="1" />
+          <End Role="SpelerWedstrijd" Type="Self.SpelerWedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spelers">
+              <PropertyRef Name="SpelerID" />
+            </Principal>
+            <Dependent Role="SpelerWedstrijd">
+              <PropertyRef Name="SpelerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerWedstrijdWedstrijdID">
+          <End Role="Wedstrijden" Type="Self.Wedstrijden" Multiplicity="1" />
+          <End Role="SpelerWedstrijd" Type="Self.SpelerWedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wedstrijden">
+              <PropertyRef Name="WedstrijdID" />
+            </Principal>
+            <Dependent Role="SpelerWedstrijd">
+              <PropertyRef Name="WedstrijdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WedstrijdSeizoenID">
+          <End Role="Seizoenen" Type="Self.Seizoenen" Multiplicity="1" />
+          <End Role="Wedstrijden" Type="Self.Wedstrijden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seizoenen">
+              <PropertyRef Name="SeizoenID" />
+            </Principal>
+            <Dependent Role="Wedstrijden">
+              <PropertyRef Name="SeizoenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WedstrijdThuisClubID">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+          <End Role="Wedstrijden" Type="Self.Wedstrijden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Wedstrijden">
+              <PropertyRef Name="ThuisClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WedstrijdUitClubID">
+          <End Role="Clubs" Type="Self.Clubs" Multiplicity="1" />
+          <End Role="Wedstrijden" Type="Self.Wedstrijden" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Wedstrijden">
+              <PropertyRef Name="UitClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PremierLeagueModelStoreContainer">
+          <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clubstats" EntityType="Self.Clubstats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seizoenen" EntityType="Self.Seizoenen" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spelers" EntityType="Self.Spelers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Spelerstats" EntityType="Self.Spelerstats" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SpelerWedstrijd" EntityType="Self.SpelerWedstrijd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wedstrijden" EntityType="Self.Wedstrijden" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ClubstatsClubID" Association="Self.FK_ClubstatsClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Clubstats" EntitySet="Clubstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubstatsSeizoenID" Association="Self.FK_ClubstatsSeizoenID">
+            <End Role="Seizoenen" EntitySet="Seizoenen" />
+            <End Role="Clubstats" EntitySet="Clubstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerClubID" Association="Self.FK_SpelerClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Spelers" EntitySet="Spelers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerstatsSeizoenID" Association="Self.FK_SpelerstatsSeizoenID">
+            <End Role="Seizoenen" EntitySet="Seizoenen" />
+            <End Role="Spelerstats" EntitySet="Spelerstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerstatsSpelerID" Association="Self.FK_SpelerstatsSpelerID">
+            <End Role="Spelers" EntitySet="Spelers" />
+            <End Role="Spelerstats" EntitySet="Spelerstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerWedstrijdSpelerID" Association="Self.FK_SpelerWedstrijdSpelerID">
+            <End Role="Spelers" EntitySet="Spelers" />
+            <End Role="SpelerWedstrijd" EntitySet="SpelerWedstrijd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerWedstrijdWedstrijdID" Association="Self.FK_SpelerWedstrijdWedstrijdID">
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+            <End Role="SpelerWedstrijd" EntitySet="SpelerWedstrijd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WedstrijdSeizoenID" Association="Self.FK_WedstrijdSeizoenID">
+            <End Role="Seizoenen" EntitySet="Seizoenen" />
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WedstrijdThuisClubID" Association="Self.FK_WedstrijdThuisClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WedstrijdUitClubID" Association="Self.FK_WedstrijdUitClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PremierLeagueModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Club">
+          <Key>
+            <PropertyRef Name="ClubID" />
+          </Key>
+          <Property Name="ClubID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Clubnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Afkorting" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stadion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Stad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Clubstats" Relationship="Self.FK_ClubstatsClubID" FromRole="Clubs" ToRole="Clubstats" />
+          <NavigationProperty Name="Speler" Relationship="Self.FK_SpelerClubID" FromRole="Clubs" ToRole="Spelers" />
+          <NavigationProperty Name="ThuisWedstrijd" Relationship="Self.FK_WedstrijdThuisClubID" FromRole="Clubs" ToRole="Wedstrijden" />
+          <NavigationProperty Name="UitWedstrijd" Relationship="Self.FK_WedstrijdUitClubID" FromRole="Clubs" ToRole="Wedstrijden" />
+        </EntityType>
+        <EntityType Name="Clubstatistiek">
+          <Key>
+            <PropertyRef Name="ClubstatsID" />
+          </Key>
+          <Property Name="ClubstatsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Winst" Type="Int32" />
+          <Property Name="Gelijk" Type="Int32" />
+          <Property Name="Verlies" Type="Int32" />
+          <Property Name="DoelpuntVoor" Type="Int32" />
+          <Property Name="DoelpuntTegen" Type="Int32" />
+          <Property Name="Punten" Type="Int32" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="SeizoenID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clubs" Relationship="Self.FK_ClubstatsClubID" FromRole="Clubstats" ToRole="Clubs" />
+          <NavigationProperty Name="Seizoenen" Relationship="Self.FK_ClubstatsSeizoenID" FromRole="Clubstats" ToRole="Seizoenen" />
+        </EntityType>
+        <EntityType Name="Seizoen">
+          <Key>
+            <PropertyRef Name="SeizoenID" />
+          </Key>
+          <Property Name="SeizoenID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeizoenNaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Begindatum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Einddatum" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Clubstatistiek" Relationship="Self.FK_ClubstatsSeizoenID" FromRole="Seizoenen" ToRole="Clubstats" />
+          <NavigationProperty Name="Spelerstatistiek" Relationship="Self.FK_SpelerstatsSeizoenID" FromRole="Seizoenen" ToRole="Spelerstats" />
+          <NavigationProperty Name="Wedstrijd" Relationship="Self.FK_WedstrijdSeizoenID" FromRole="Seizoenen" ToRole="Wedstrijden" />
+        </EntityType>
+        <EntityType Name="Speler">
+          <Key>
+            <PropertyRef Name="SpelerID" />
+          </Key>
+          <Property Name="SpelerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Voornaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Achternaam" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Positie" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Shirtnummer" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Clubs" Relationship="Self.FK_SpelerClubID" FromRole="Spelers" ToRole="Clubs" />
+          <NavigationProperty Name="Spelerstat" Relationship="Self.FK_SpelerstatsSpelerID" FromRole="Spelers" ToRole="Spelerstats" />
+          <NavigationProperty Name="SpelerWedstrijd" Relationship="Self.FK_SpelerWedstrijdSpelerID" FromRole="Spelers" ToRole="SpelerWedstrijd" />
+        </EntityType>
+        <EntityType Name="Spelerstatistiek">
+          <Key>
+            <PropertyRef Name="SpelerstatsID" />
+          </Key>
+          <Property Name="SpelerstatsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doelpunt" Type="Int32" />
+          <Property Name="Assist" Type="Int32" />
+          <Property Name="GeleKaart" Type="Int32" />
+          <Property Name="RodeKaart" Type="Int32" />
+          <Property Name="Owngoal" Type="Int32" />
+          <Property Name="SpelerID" Type="Int32" Nullable="false" />
+          <Property Name="SeizoenID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Seizoenen" Relationship="Self.FK_SpelerstatsSeizoenID" FromRole="Spelerstats" ToRole="Seizoenen" />
+          <NavigationProperty Name="Spelers" Relationship="Self.FK_SpelerstatsSpelerID" FromRole="Spelerstats" ToRole="Spelers" />
+        </EntityType>
+        <EntityType Name="SpelerWedstrijd">
+          <Key>
+            <PropertyRef Name="SpelerWedstrijdID" />
+          </Key>
+          <Property Name="SpelerWedstrijdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Doelpunt" Type="Int32" />
+          <Property Name="Assist" Type="Int32" />
+          <Property Name="GeleKaart" Type="Int32" />
+          <Property Name="RodeKaart" Type="Int32" />
+          <Property Name="Owngoal" Type="Int32" />
+          <Property Name="SpelerID" Type="Int32" Nullable="false" />
+          <Property Name="WedstrijdID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Spelers" Relationship="Self.FK_SpelerWedstrijdSpelerID" FromRole="SpelerWedstrijd" ToRole="Spelers" />
+          <NavigationProperty Name="Wedstrijden" Relationship="Self.FK_SpelerWedstrijdWedstrijdID" FromRole="SpelerWedstrijd" ToRole="Wedstrijden" />
+        </EntityType>
+        <EntityType Name="Wedstrijd">
+          <Key>
+            <PropertyRef Name="WedstrijdID" />
+          </Key>
+          <Property Name="WedstrijdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeizoenID" Type="Int32" Nullable="false" />
+          <Property Name="Speeldag" Type="Int32" Nullable="false" />
+          <Property Name="ThuisClubID" Type="Int32" Nullable="false" />
+          <Property Name="ThuisClubScore" Type="Int32" />
+          <Property Name="UitClubScore" Type="Int32" />
+          <Property Name="UitClubID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ThuisClubs" Relationship="Self.FK_WedstrijdThuisClubID" FromRole="Wedstrijden" ToRole="Clubs" />
+          <NavigationProperty Name="UitClubs" Relationship="Self.FK_WedstrijdUitClubID" FromRole="Wedstrijden" ToRole="Clubs" />
+          <NavigationProperty Name="Seizoenen" Relationship="Self.FK_WedstrijdSeizoenID" FromRole="Wedstrijden" ToRole="Seizoenen" />
+          <NavigationProperty Name="SpelerWedstrijd" Relationship="Self.FK_SpelerWedstrijdWedstrijdID" FromRole="Wedstrijden" ToRole="SpelerWedstrijd" />
+        </EntityType>
+        <Association Name="FK_ClubstatsClubID">
+          <End Role="Clubs" Type="PremierLeagueModel.Club" Multiplicity="1" />
+          <End Role="Clubstats" Type="PremierLeagueModel.Clubstatistiek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Clubstats">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerClubID">
+          <End Role="Clubs" Type="PremierLeagueModel.Club" Multiplicity="1" />
+          <End Role="Spelers" Type="PremierLeagueModel.Speler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Spelers">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WedstrijdThuisClubID">
+          <End Role="Clubs" Type="PremierLeagueModel.Club" Multiplicity="1" />
+          <End Role="Wedstrijden" Type="PremierLeagueModel.Wedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Wedstrijden">
+              <PropertyRef Name="ThuisClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WedstrijdUitClubID">
+          <End Role="Clubs" Type="PremierLeagueModel.Club" Multiplicity="1" />
+          <End Role="Wedstrijden" Type="PremierLeagueModel.Wedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clubs">
+              <PropertyRef Name="ClubID" />
+            </Principal>
+            <Dependent Role="Wedstrijden">
+              <PropertyRef Name="UitClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ClubstatsSeizoenID">
+          <End Role="Seizoenen" Type="PremierLeagueModel.Seizoen" Multiplicity="1" />
+          <End Role="Clubstats" Type="PremierLeagueModel.Clubstatistiek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seizoenen">
+              <PropertyRef Name="SeizoenID" />
+            </Principal>
+            <Dependent Role="Clubstats">
+              <PropertyRef Name="SeizoenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerstatsSeizoenID">
+          <End Role="Seizoenen" Type="PremierLeagueModel.Seizoen" Multiplicity="1" />
+          <End Role="Spelerstats" Type="PremierLeagueModel.Spelerstatistiek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seizoenen">
+              <PropertyRef Name="SeizoenID" />
+            </Principal>
+            <Dependent Role="Spelerstats">
+              <PropertyRef Name="SeizoenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WedstrijdSeizoenID">
+          <End Role="Seizoenen" Type="PremierLeagueModel.Seizoen" Multiplicity="1" />
+          <End Role="Wedstrijden" Type="PremierLeagueModel.Wedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seizoenen">
+              <PropertyRef Name="SeizoenID" />
+            </Principal>
+            <Dependent Role="Wedstrijden">
+              <PropertyRef Name="SeizoenID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerstatsSpelerID">
+          <End Role="Spelers" Type="PremierLeagueModel.Speler" Multiplicity="1" />
+          <End Role="Spelerstats" Type="PremierLeagueModel.Spelerstatistiek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spelers">
+              <PropertyRef Name="SpelerID" />
+            </Principal>
+            <Dependent Role="Spelerstats">
+              <PropertyRef Name="SpelerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerWedstrijdSpelerID">
+          <End Role="Spelers" Type="PremierLeagueModel.Speler" Multiplicity="1" />
+          <End Role="SpelerWedstrijd" Type="Self.SpelerWedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Spelers">
+              <PropertyRef Name="SpelerID" />
+            </Principal>
+            <Dependent Role="SpelerWedstrijd">
+              <PropertyRef Name="SpelerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpelerWedstrijdWedstrijdID">
+          <End Role="Wedstrijden" Type="PremierLeagueModel.Wedstrijd" Multiplicity="1" />
+          <End Role="SpelerWedstrijd" Type="Self.SpelerWedstrijd" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wedstrijden">
+              <PropertyRef Name="WedstrijdID" />
+            </Principal>
+            <Dependent Role="SpelerWedstrijd">
+              <PropertyRef Name="WedstrijdID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PremierLeagueEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clubs" EntityType="PremierLeagueModel.Club" />
+          <EntitySet Name="Clubstats" EntityType="PremierLeagueModel.Clubstatistiek" />
+          <EntitySet Name="Seizoenen" EntityType="PremierLeagueModel.Seizoen" />
+          <EntitySet Name="Spelers" EntityType="PremierLeagueModel.Speler" />
+          <EntitySet Name="Spelerstats" EntityType="PremierLeagueModel.Spelerstatistiek" />
+          <EntitySet Name="SpelerWedstrijd" EntityType="Self.SpelerWedstrijd" />
+          <EntitySet Name="Wedstrijden" EntityType="PremierLeagueModel.Wedstrijd" />
+          <AssociationSet Name="FK_ClubstatsClubID" Association="Self.FK_ClubstatsClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Clubstats" EntitySet="Clubstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerClubID" Association="Self.FK_SpelerClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Spelers" EntitySet="Spelers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WedstrijdThuisClubID" Association="Self.FK_WedstrijdThuisClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WedstrijdUitClubID" Association="Self.FK_WedstrijdUitClubID">
+            <End Role="Clubs" EntitySet="Clubs" />
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ClubstatsSeizoenID" Association="Self.FK_ClubstatsSeizoenID">
+            <End Role="Seizoenen" EntitySet="Seizoenen" />
+            <End Role="Clubstats" EntitySet="Clubstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerstatsSeizoenID" Association="Self.FK_SpelerstatsSeizoenID">
+            <End Role="Seizoenen" EntitySet="Seizoenen" />
+            <End Role="Spelerstats" EntitySet="Spelerstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WedstrijdSeizoenID" Association="Self.FK_WedstrijdSeizoenID">
+            <End Role="Seizoenen" EntitySet="Seizoenen" />
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerstatsSpelerID" Association="Self.FK_SpelerstatsSpelerID">
+            <End Role="Spelers" EntitySet="Spelers" />
+            <End Role="Spelerstats" EntitySet="Spelerstats" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerWedstrijdSpelerID" Association="Self.FK_SpelerWedstrijdSpelerID">
+            <End Role="Spelers" EntitySet="Spelers" />
+            <End Role="SpelerWedstrijd" EntitySet="SpelerWedstrijd" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpelerWedstrijdWedstrijdID" Association="Self.FK_SpelerWedstrijdWedstrijdID">
+            <End Role="Wedstrijden" EntitySet="Wedstrijden" />
+            <End Role="SpelerWedstrijd" EntitySet="SpelerWedstrijd" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PremierLeagueModelStoreContainer" CdmEntityContainer="PremierLeagueEntities">
+          <EntitySetMapping Name="Clubs">
+            <EntityTypeMapping TypeName="PremierLeagueModel.Club">
+              <MappingFragment StoreEntitySet="Clubs">
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="Clubnaam" ColumnName="Clubnaam" />
+                <ScalarProperty Name="Afkorting" ColumnName="Afkorting" />
+                <ScalarProperty Name="Stadion" ColumnName="Stadion" />
+                <ScalarProperty Name="Stad" ColumnName="Stad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clubstats">
+            <EntityTypeMapping TypeName="PremierLeagueModel.Clubstatistiek">
+              <MappingFragment StoreEntitySet="Clubstats">
+                <ScalarProperty Name="ClubstatsID" ColumnName="ClubstatsID" />
+                <ScalarProperty Name="Winst" ColumnName="Winst" />
+                <ScalarProperty Name="Gelijk" ColumnName="Gelijk" />
+                <ScalarProperty Name="Verlies" ColumnName="Verlies" />
+                <ScalarProperty Name="DoelpuntVoor" ColumnName="DoelpuntVoor" />
+                <ScalarProperty Name="DoelpuntTegen" ColumnName="DoelpuntTegen" />
+                <ScalarProperty Name="Punten" ColumnName="Punten" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seizoenen">
+            <EntityTypeMapping TypeName="PremierLeagueModel.Seizoen">
+              <MappingFragment StoreEntitySet="Seizoenen">
+                <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+                <ScalarProperty Name="SeizoenNaam" ColumnName="SeizoenNaam" />
+                <ScalarProperty Name="Begindatum" ColumnName="Begindatum" />
+                <ScalarProperty Name="Einddatum" ColumnName="Einddatum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spelers">
+            <EntityTypeMapping TypeName="PremierLeagueModel.Speler">
+              <MappingFragment StoreEntitySet="Spelers">
+                <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+                <ScalarProperty Name="Positie" ColumnName="Positie" />
+                <ScalarProperty Name="Shirtnummer" ColumnName="Shirtnummer" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Spelerstats">
+            <EntityTypeMapping TypeName="PremierLeagueModel.Spelerstatistiek">
+              <MappingFragment StoreEntitySet="Spelerstats">
+                <ScalarProperty Name="SpelerstatsID" ColumnName="SpelerstatsID" />
+                <ScalarProperty Name="Doelpunt" ColumnName="Doelpunt" />
+                <ScalarProperty Name="Assist" ColumnName="Assist" />
+                <ScalarProperty Name="GeleKaart" ColumnName="GeleKaart" />
+                <ScalarProperty Name="RodeKaart" ColumnName="RodeKaart" />
+                <ScalarProperty Name="Owngoal" ColumnName="Owngoal" />
+                <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+                <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpelerWedstrijd">
+            <EntityTypeMapping TypeName="PremierLeagueModel.SpelerWedstrijd">
+              <MappingFragment StoreEntitySet="SpelerWedstrijd">
+                <ScalarProperty Name="SpelerWedstrijdID" ColumnName="SpelerWedstrijdID" />
+                <ScalarProperty Name="Doelpunt" ColumnName="Doelpunt" />
+                <ScalarProperty Name="Assist" ColumnName="Assist" />
+                <ScalarProperty Name="GeleKaart" ColumnName="GeleKaart" />
+                <ScalarProperty Name="RodeKaart" ColumnName="RodeKaart" />
+                <ScalarProperty Name="Owngoal" ColumnName="Owngoal" />
+                <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+                <ScalarProperty Name="WedstrijdID" ColumnName="WedstrijdID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Wedstrijden">
+            <EntityTypeMapping TypeName="PremierLeagueModel.Wedstrijd">
+              <MappingFragment StoreEntitySet="Wedstrijden">
+                <ScalarProperty Name="WedstrijdID" ColumnName="WedstrijdID" />
+                <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+                <ScalarProperty Name="Speeldag" ColumnName="Speeldag" />
+                <ScalarProperty Name="ThuisClubID" ColumnName="ThuisClubID" />
+                <ScalarProperty Name="ThuisClubScore" ColumnName="ThuisClubScore" />
+                <ScalarProperty Name="UitClubScore" ColumnName="UitClubScore" />
+                <ScalarProperty Name="UitClubID" ColumnName="UitClubID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NijsDennis_ZX0940_DM_Project"
         mc:Ignorable="d"
-        Title="Premier League: Beheer Spelers" Height="660" Width="850" FontFamily="Berlin Sans FB">
+        Title="Premier League: Beheer Spelers" Height="660" Width="850" FontFamily="Berlin Sans FB" Loaded="Window_Loaded">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -27,18 +27,18 @@
             <Label x:Name="lblTitel" Content="Beheer Spelers" FontSize="35" Foreground="#FF3D195D" VerticalAlignment="Center"/>
         </DockPanel>
 
-        <DataGrid Background="LightGray" BorderThickness="1" BorderBrush="#FF3D195D" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" Margin="5" MinHeight="200">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="#"></DataGridTextColumn>
-                <DataGridTextColumn Header="Speler"></DataGridTextColumn>
-                <DataGridTextColumn Header="Club"></DataGridTextColumn>
-                <DataGridTextColumn Header="Positie"></DataGridTextColumn>
-                <DataGridTextColumn Header="Doelpunt"></DataGridTextColumn>
-                <DataGridTextColumn Header="Assist"></DataGridTextColumn>
-                <DataGridTextColumn Header="Gele kaart"></DataGridTextColumn>
-                <DataGridTextColumn Header="Rode kaart"></DataGridTextColumn>
-                <DataGridTextColumn Header="Owngoal"></DataGridTextColumn>
-            </DataGrid.Columns>
+        <DataGrid x:Name="dataSpelers" AutoGenerateColumns="True" Background="LightGray" BorderThickness="1" BorderBrush="#FF3D195D" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" Margin="5" MinHeight="200">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding SpelerID}" Header="#"/>
+                <DataGridTextColumn Binding="{Binding Achternaam}" Header="Speler"/>
+                <DataGridTextColumn Binding="{Binding ClubID}" Header="Club"/>
+                <DataGridTextColumn Binding="{Binding Positie}" Header="Positie"/>
+                <DataGridTextColumn Binding="{Binding Doelpunt}" Header="Doelpunt"/>
+                <DataGridTextColumn Header="Assist"/>
+                <DataGridTextColumn Header="Gele kaart"/>
+                <DataGridTextColumn Header="Rode kaart"/>
+                <DataGridTextColumn Header="Owngoal"/>
+            </DataGrid.Columns>-->
         </DataGrid>
 
 

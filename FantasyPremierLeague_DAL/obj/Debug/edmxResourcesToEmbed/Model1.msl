@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PremierLeagueModelStoreContainer" CdmEntityContainer="PremierLeagueEntities">
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="PremierLeagueModel.Club">
+        <MappingFragment StoreEntitySet="Clubs">
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="Clubnaam" ColumnName="Clubnaam" />
+          <ScalarProperty Name="Afkorting" ColumnName="Afkorting" />
+          <ScalarProperty Name="Stadion" ColumnName="Stadion" />
+          <ScalarProperty Name="Stad" ColumnName="Stad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clubstats">
+      <EntityTypeMapping TypeName="PremierLeagueModel.Clubstatistiek">
+        <MappingFragment StoreEntitySet="Clubstats">
+          <ScalarProperty Name="ClubstatsID" ColumnName="ClubstatsID" />
+          <ScalarProperty Name="Winst" ColumnName="Winst" />
+          <ScalarProperty Name="Gelijk" ColumnName="Gelijk" />
+          <ScalarProperty Name="Verlies" ColumnName="Verlies" />
+          <ScalarProperty Name="DoelpuntVoor" ColumnName="DoelpuntVoor" />
+          <ScalarProperty Name="DoelpuntTegen" ColumnName="DoelpuntTegen" />
+          <ScalarProperty Name="Punten" ColumnName="Punten" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seizoenen">
+      <EntityTypeMapping TypeName="PremierLeagueModel.Seizoen">
+        <MappingFragment StoreEntitySet="Seizoenen">
+          <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+          <ScalarProperty Name="SeizoenNaam" ColumnName="SeizoenNaam" />
+          <ScalarProperty Name="Begindatum" ColumnName="Begindatum" />
+          <ScalarProperty Name="Einddatum" ColumnName="Einddatum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spelers">
+      <EntityTypeMapping TypeName="PremierLeagueModel.Speler">
+        <MappingFragment StoreEntitySet="Spelers">
+          <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+          <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+          <ScalarProperty Name="Achternaam" ColumnName="Achternaam" />
+          <ScalarProperty Name="Positie" ColumnName="Positie" />
+          <ScalarProperty Name="Shirtnummer" ColumnName="Shirtnummer" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Spelerstats">
+      <EntityTypeMapping TypeName="PremierLeagueModel.Spelerstatistiek">
+        <MappingFragment StoreEntitySet="Spelerstats">
+          <ScalarProperty Name="SpelerstatsID" ColumnName="SpelerstatsID" />
+          <ScalarProperty Name="Doelpunt" ColumnName="Doelpunt" />
+          <ScalarProperty Name="Assist" ColumnName="Assist" />
+          <ScalarProperty Name="GeleKaart" ColumnName="GeleKaart" />
+          <ScalarProperty Name="RodeKaart" ColumnName="RodeKaart" />
+          <ScalarProperty Name="Owngoal" ColumnName="Owngoal" />
+          <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+          <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SpelerWedstrijd">
+      <EntityTypeMapping TypeName="PremierLeagueModel.SpelerWedstrijd">
+        <MappingFragment StoreEntitySet="SpelerWedstrijd">
+          <ScalarProperty Name="SpelerWedstrijdID" ColumnName="SpelerWedstrijdID" />
+          <ScalarProperty Name="Doelpunt" ColumnName="Doelpunt" />
+          <ScalarProperty Name="Assist" ColumnName="Assist" />
+          <ScalarProperty Name="GeleKaart" ColumnName="GeleKaart" />
+          <ScalarProperty Name="RodeKaart" ColumnName="RodeKaart" />
+          <ScalarProperty Name="Owngoal" ColumnName="Owngoal" />
+          <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+          <ScalarProperty Name="WedstrijdID" ColumnName="WedstrijdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wedstrijden">
+      <EntityTypeMapping TypeName="PremierLeagueModel.Wedstrijd">
+        <MappingFragment StoreEntitySet="Wedstrijden">
+          <ScalarProperty Name="WedstrijdID" ColumnName="WedstrijdID" />
+          <ScalarProperty Name="SeizoenID" ColumnName="SeizoenID" />
+          <ScalarProperty Name="Speeldag" ColumnName="Speeldag" />
+          <ScalarProperty Name="ThuisClubID" ColumnName="ThuisClubID" />
+          <ScalarProperty Name="ThuisClubScore" ColumnName="ThuisClubScore" />
+          <ScalarProperty Name="UitClubScore" ColumnName="UitClubScore" />
+          <ScalarProperty Name="UitClubID" ColumnName="UitClubID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -39,3 +39,9 @@ C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod Da
 C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\FantasyPremierLeagueWindow.baml
 C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\SpelerMenuWindow.g.cs
 C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\obj\Debug\SpelerMenuWindow.baml
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\EntityFramework.dll
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\FantasyPremierLeague_DAL.dll.config
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\EntityFramework.xml
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\FantasyPremierLeague_Models.dll.config
+C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\NijsDennis_ZX0940_DM_Project\bin\Debug\EntityFramework.SqlServer.xml

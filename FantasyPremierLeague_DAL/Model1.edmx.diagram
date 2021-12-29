@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b5be8516d3c42f190686621b9e855d9" Name="Diagram1" ZoomLevel="109">
+        <EntityTypeShape EntityType="PremierLeagueModel.Club" Width="1.5" PointX="8" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PremierLeagueModel.Clubstatistiek" Width="1.5" PointX="2.625" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PremierLeagueModel.Seizoen" Width="1.5" PointX="2.625" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PremierLeagueModel.Speler" Width="1.5" PointX="7.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PremierLeagueModel.Spelerstatistiek" Width="1.5" PointX="2.625" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="PremierLeagueModel.SpelerWedstrijd" Width="1.5" PointX="5.375" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PremierLeagueModel.Wedstrijd" Width="1.5" PointX="5.375" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="PremierLeagueModel.FK_ClubstatsClubID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_SpelerClubID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_WedstrijdThuisClubID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_WedstrijdUitClubID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_ClubstatsSeizoenID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_SpelerstatsSeizoenID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_WedstrijdSeizoenID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_SpelerstatsSpelerID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_SpelerWedstrijdSpelerID" ManuallyRouted="false" />
+        <AssociationConnector Association="PremierLeagueModel.FK_SpelerWedstrijdWedstrijdID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

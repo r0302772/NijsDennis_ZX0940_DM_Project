@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using FantasyPremierLeague_Models;
+using FantasyPremierLeague_DAL;
 
 namespace NijsDennis_ZX0940_DM_Project
 {
@@ -19,9 +21,15 @@ namespace NijsDennis_ZX0940_DM_Project
     /// </summary>
     public partial class SpelerMenuWindow : Window
     {
+
         public SpelerMenuWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dataSpelers.ItemsSource = DatabaseOperations.OphalenSpelers();
         }
 
         private void btnZoeken_Click(object sender, RoutedEventArgs e)
