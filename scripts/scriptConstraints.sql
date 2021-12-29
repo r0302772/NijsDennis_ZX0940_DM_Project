@@ -42,6 +42,8 @@ ALTER TABLE SpelerWedstrijd
 ADD CONSTRAINT FK_SpelerWedstrijdSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID);
 ALTER TABLE SpelerWedstrijd
 ADD CONSTRAINT FK_SpelerWedstrijdWedstrijdID FOREIGN KEY (WedstrijdID) REFERENCES Wedstrijden(WedstrijdID);
+ALTER TABLE SpelerWedstrijd
+ADD CONSTRAINT UC_SpelerWedstrijd UNIQUE (SpelerID, WedstrijdID);
 
 /* 
 ALTER TABLE Datums
