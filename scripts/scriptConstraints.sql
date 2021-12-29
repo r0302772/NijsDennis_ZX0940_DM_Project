@@ -19,6 +19,8 @@ ALTER TABLE Spelers
 ADD CONSTRAINT FK_SpelerClubID FOREIGN KEY (ClubID) REFERENCES Clubs(ClubID);
 ALTER TABLE Spelers
 ADD CONSTRAINT UC_Spelernaam UNIQUE (Voornaam,Achternaam,Shirtnummer,ClubID);
+/* ALTER TABLE Spelers
+ADD CONSTRAINT UC_ShirtnummerClub UNIQUE (Shirtnummer,ClubID); */
 
 ALTER TABLE Spelerstats
 ADD CONSTRAINT PK_Spelerstats PRIMARY KEY (SpelerstatsID);
@@ -35,6 +37,8 @@ ALTER TABLE Wedstrijden
 ADD CONSTRAINT FK_WedstrijdUitClubID FOREIGN KEY (UitClubID) REFERENCES Clubs(ClubID);
 ALTER TABLE Wedstrijden
 ADD CONSTRAINT FK_WedstrijdSeizoenID FOREIGN KEY (SeizoenID) REFERENCES Seizoenen(SeizoenID);
+ALTER TABLE Wedstrijden
+ADD CONSTRAINT UC_Wedstrijd UNIQUE (ThuisClubID,UitClubID);
 
 ALTER TABLE SpelerWedstrijd
 ADD CONSTRAINT PK_SpelerWedstrijd PRIMARY KEY (SpelerWedstrijdID);
@@ -42,8 +46,6 @@ ALTER TABLE SpelerWedstrijd
 ADD CONSTRAINT FK_SpelerWedstrijdSpelerID FOREIGN KEY (SpelerID) REFERENCES Spelers(SpelerID);
 ALTER TABLE SpelerWedstrijd
 ADD CONSTRAINT FK_SpelerWedstrijdWedstrijdID FOREIGN KEY (WedstrijdID) REFERENCES Wedstrijden(WedstrijdID);
-ALTER TABLE SpelerWedstrijd
-ADD CONSTRAINT UC_SpelerWedstrijd UNIQUE (SpelerID, WedstrijdID);
 
 /* 
 ALTER TABLE Datums

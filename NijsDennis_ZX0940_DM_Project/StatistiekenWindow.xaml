@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NijsDennis_ZX0940_DM_Project"
         mc:Ignorable="d"
-        Title="Fantasy Premier League: Statistieken" Height="615" Width="850" FontFamily="Berlin Sans FB">
+        Title="Premier League: Statistieken" Height="615" Width="850" FontFamily="Berlin Sans FB">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

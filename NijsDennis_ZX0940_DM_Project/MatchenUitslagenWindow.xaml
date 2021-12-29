@@ -58,7 +58,7 @@
         </DataGrid>
 
         <StackPanel Grid.Row="5" Grid.Column="1" x:Name="spUitslagExtra" Margin="5">
-            <Label Content="Team" FontSize="15"/>
+            <Label Content="Club" FontSize="15"/>
             <Label Content="Speler" FontSize="15"/>
             <Label Content="Aantal" FontSize="15"/>
             <TextBox x:Name="txtGoal" Grid.Row="2" Grid.Column="2" Margin="5"/>
@@ -79,7 +79,7 @@
         <DataGrid Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Margin="5" x:Name="dgUitslagExtra2">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Speler"></DataGridTextColumn>
-                <DataGridTextColumn Header="Team"></DataGridTextColumn>
+                <DataGridTextColumn Header="Club"></DataGridTextColumn>
                 <DataGridTextColumn Header="Goal(s)"></DataGridTextColumn>
                 <DataGridTextColumn Header="Assist(s)"></DataGridTextColumn>
                 <DataGridTextColumn Header="Gele Kaart"></DataGridTextColumn>

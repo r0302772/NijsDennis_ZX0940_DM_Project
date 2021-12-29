@@ -27,12 +27,6 @@ namespace NijsDennis_ZX0940_DM_Project
             InitializeComponent();
         }
 
-        private void btnBekijkRangschikking_Click(object sender, RoutedEventArgs e)
-        {
-            KlassementWindow klassementWindow = new KlassementWindow();
-            klassementWindow.Show();
-        }
-
         private void btnMatchUitslagen_Click(object sender, RoutedEventArgs e)
         {
             MatchenUitslagenWindow matchenUitslagenWindow = new MatchenUitslagenWindow();
@@ -43,6 +37,10 @@ namespace NijsDennis_ZX0940_DM_Project
         {
             StatistiekenWindow statistiekenWindow = new StatistiekenWindow();
             statistiekenWindow.Show();
+        }
+        private void btnSpelerMenu_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void btnSluiten_Click(object sender, RoutedEventArgs e)

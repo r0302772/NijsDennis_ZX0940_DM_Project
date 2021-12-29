@@ -72,6 +72,9 @@
     <Compile Include="MatchenUitslagenWindow.xaml.cs">
       <DependentUpon>MatchenUitslagenWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SpelerMenuWindow.xaml.cs">
+      <DependentUpon>SpelerMenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SpelregelsWindow.xaml.cs">
       <DependentUpon>SpelregelsWindow.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MatchenUitslagenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpelerMenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
