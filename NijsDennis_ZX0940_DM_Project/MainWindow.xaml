@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NijsDennis_ZX0940_DM_Project"
         mc:Ignorable="d"
-        Title="Premier League" Height="510" Width="960" FontFamily="Berlin Sans FB">
+        Title="Premier League" Height="730" Width="960" FontFamily="Berlin Sans FB" Loaded="Window_Loaded">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -28,27 +28,27 @@
             <Label x:Name="lblTitel" Content="Premier League" FontSize="35" Foreground="#FF3D195D" VerticalAlignment="Center"/>
         </DockPanel>
 
-        <GroupBox Background="LightGray" Grid.Row="2" Grid.ColumnSpan="4" FontSize="15" Margin="5" MinHeight="300">
+        <GroupBox Background="LightGray" Grid.Row="2" Grid.ColumnSpan="4" FontSize="15" Margin="5">
             <GroupBox.Header>
                 <Label Content="RANGSCHIKKING" FontSize="20"/>
             </GroupBox.Header>
-            <DataGrid Background="LightGray" BorderThickness="0">
+            <DataGrid x:Name="dataRangschikking" IsReadOnly="True" AutoGenerateColumns="False" Background="LightGray" BorderThickness="0" LoadingRow="dataRangschikking_LoadingRow"  MinHeight="480">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="#"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Clubnaam"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Winst"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Gelijkspel"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Verlies"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Doelpunten Voor"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Doelpunten Tegen"></DataGridTextColumn>
-                    <DataGridTextColumn Header="Punten"></DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding Clubs.Clubnaam}" Header="Clubnaam"/>
+                    <DataGridTextColumn Binding="{Binding Winst}" Header="Winst"/>
+                    <DataGridTextColumn Binding="{Binding Gelijk}" Header="Gelijkspel"/>
+                    <DataGridTextColumn Binding="{Binding Verlies}" Header="Verlies"/>
+                    <DataGridTextColumn Binding="{Binding DoelpuntVoor}" Header="Doelpunten Voor"/>
+                    <DataGridTextColumn Binding="{Binding DoelpuntTegen}" Header="Doelpunten Tegen"/>
+                    <DataGridTextColumn Binding="{Binding Doelpuntensaldo}" Header="Doelpuntensaldo"/>
+                    <DataGridTextColumn Binding="{Binding Punten}" Header="Punten"/>
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>
 
         <Button x:Name="btnMatchUitslagen" Content="MATCHEN &amp; UITSLAGEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="3" Click="btnMatchUitslagen_Click"/>
-        <Button x:Name="btnBekijkStatistieken" Content="BEKIJK SPELER STATISTIEKEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="3" Grid.Column="2" Click="btnBekijkStatistieken_Click"/>
-        <Button x:Name="btnBeheerSpelers" Content="BEHEER SPELERS" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="4" Click="btnSpelerMenu_Click"/>
-        <Button x:Name="btnSluiten" Content="SLUITEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="4" Grid.Row="4" Click="btnSluiten_Click"/>
+        <Button x:Name="btnRefresh" Content="REFRESH RANGSCHIKKING" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Click="btnRefresh_Click"/>
+        <Button x:Name="btnBeheerSpelersEnTeams" Content="BEHEER SPELERS &amp; TEAMS" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.ColumnSpan="2" Grid.Row="4" Click="btnBeheerSpelersEnTeams_Click"/>  
+        <Button x:Name="btnSluiten" Content="SLUITEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="3" Grid.Row="4" Click="btnSluiten_Click"/>
     </Grid>
 </Window>

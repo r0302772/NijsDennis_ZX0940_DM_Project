@@ -27,6 +27,35 @@ namespace NijsDennis_ZX0940_DM_Project
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dataRangschikking.ItemsSource = DatabaseOperations.OphalenRangschikking();
+        }
+
+        private void dataRangschikking_LoadingRow(object sender, DataGridRowEventArgs e)
+        {
+            int rijnummer = e.Row.GetIndex() + 1;
+
+            e.Row.Header = rijnummer.ToString();
+
+            if (rijnummer == 1)
+            {
+                e.Row.Background = Brushes.Gold;
+            }
+
+            if (rijnummer > 17)
+            {
+                e.Row.Background = Brushes.Red;
+            }
+
+            //https://stackoverflow.com/questions/4661998/simple-way-to-display-row-numbers-on-wpf-datagrid
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            dataRangschikking.ItemsSource = DatabaseOperations.OphalenRangschikking();
+        }
+
         private void btnMatchUitslagen_Click(object sender, RoutedEventArgs e)
         {
             MatchenUitslagenWindow matchenUitslagenWindow = new MatchenUitslagenWindow();
@@ -39,17 +68,15 @@ namespace NijsDennis_ZX0940_DM_Project
             statistiekenWindow.Show();
         }
 
-        private void btnSpelerMenu_Click(object sender, RoutedEventArgs e)
-        {
-            SpelerMenuWindow spelerMenuWindow = new SpelerMenuWindow();
-            spelerMenuWindow.Show();
-        }
-
         private void btnSluiten_Click(object sender, RoutedEventArgs e)
         {
             App.Current.Shutdown();
         }
 
-
+        private void btnBeheerSpelersEnTeams_Click(object sender, RoutedEventArgs e)
+        {
+            SpelerMenuWindow spelerMenuWindow = new SpelerMenuWindow();
+            spelerMenuWindow.Show();
+        }
     }
 }

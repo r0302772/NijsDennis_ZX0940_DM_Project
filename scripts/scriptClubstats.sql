@@ -12,7 +12,7 @@ INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punte
 INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (0, 0, 1, 0, 1, 0, 12, 1);
 INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (1, 0, 0, 5, 1, 3, 13, 1);
 INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (0, 0, 1, 2, 4, 0, 14, 1);
-INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (0, 0, 1, 0, 3, 3, 15, 1);
+INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (0, 0, 1, 0, 3, 0, 15, 1);
 INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (0, 0, 1, 1, 3, 0, 16, 1);
 INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (1, 0, 0, 1, 0, 3, 17, 1);
 INSERT INTO Clubstats(Winst, Gelijk, Verlies, DoelpuntVoor, DoelpuntTegen, Punten, ClubID, SeizoenID) VALUES (1, 0, 0, 3, 2, 3, 18, 1);

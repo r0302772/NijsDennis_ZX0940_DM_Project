@@ -27,62 +27,72 @@
             <Label x:Name="lblTitel" Content="Beheer Spelers" FontSize="35" Foreground="#FF3D195D" VerticalAlignment="Center"/>
         </DockPanel>
 
-        <DataGrid x:Name="dataSpelers" AutoGenerateColumns="True" Background="LightGray" BorderThickness="1" BorderBrush="#FF3D195D" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" Margin="5" MinHeight="200">
-            <!--<DataGrid.Columns>
+        <DataGrid x:Name="datagridSpelers" IsReadOnly="True" AutoGenerateColumns="False" Background="LightGray" 
+                  BorderThickness="1" BorderBrush="#FF3D195D" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" 
+                  Margin="5" MinHeight="200" MaxHeight="200" ScrollViewer.CanContentScroll="True"
+                  SelectionChanged="datagridSpelers_SelectionChanged">
+            //https://stackoverflow.com/questions/673516/how-can-i-enable-scrollbars-on-the-wpf-datagrid
+            <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding SpelerID}" Header="#"/>
-                <DataGridTextColumn Binding="{Binding Achternaam}" Header="Speler"/>
-                <DataGridTextColumn Binding="{Binding ClubID}" Header="Club"/>
+                <DataGridTextColumn Binding="{Binding VolledigeNaam}" Header="Spelernaam"/>
+                <DataGridTextColumn Binding="{Binding Clubs.Clubnaam}" Header="Clubnaam"/>
                 <DataGridTextColumn Binding="{Binding Positie}" Header="Positie"/>
-                <DataGridTextColumn Binding="{Binding Doelpunt}" Header="Doelpunt"/>
-                <DataGridTextColumn Header="Assist"/>
-                <DataGridTextColumn Header="Gele kaart"/>
-                <DataGridTextColumn Header="Rode kaart"/>
-                <DataGridTextColumn Header="Owngoal"/>
-            </DataGrid.Columns>-->
+                <DataGridTextColumn Binding="{Binding Shirtnummer}" Header="Shirtnummer"/>
+            </DataGrid.Columns>
         </DataGrid>
 
-
         <StackPanel Grid.Row="2">
-            <GroupBox Background="LightGray" Margin="5">
+            <GroupBox Background="LightGray" Margin="5" FontSize="15">
                 <GroupBox.Header>
-                    <Label Content="ZOEKEN" FontSize="20"/>
+                    <Label Content="ZOEK OP SPELER" FontSize="20"/>
                 </GroupBox.Header>
                 <StackPanel>
-                    <Label  x:Name="lblZoeken" Content="Zoekterm:" Margin="5" FontSize="15"/>
-                    <TextBox  x:Name="txtZoeken" Margin="5"/>
+                    <TextBox  x:Name="txtZoekSpeler" Margin="5"/>
+                    <Button x:Name="btnZoekSpeler" Content="GO" FontSize="25" Margin="5" Background="#FF3D195D" 
+                    Foreground="White" Grid.Column="4" Grid.Row="3" Click="btnZoekSpeler_Click"/>
                 </StackPanel>
             </GroupBox>
 
-            <Button x:Name="btnZoeken" Content="ZOEKEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="4" Grid.Row="3" Click="btnZoeken_Click"/>
+            <GroupBox Background="LightGray" Margin="5" FontSize="15">
+                <GroupBox.Header>
+                    <Label Content="ZOEK OP CLUB" FontSize="20"/>
+                </GroupBox.Header>
+                <StackPanel>
+                    <ComboBox x:Name="cmbZoekClub" Margin="5"/>
+                    <Button x:Name="btnZoekClub" Content="GO" FontSize="25" Margin="5" Background="#FF3D195D" 
+                    Foreground="White" Grid.Column="4" Grid.Row="3" Click="btnZoekClub_Click"/>
+                </StackPanel>
+            </GroupBox>
         </StackPanel>
 
-        <GroupBox Background="LightGray" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2">
+
+        <GroupBox Background="LightGray" Margin="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" FontSize="15">
             <GroupBox.Header>
                 <Label Content="SPELER" FontSize="20"/>
             </GroupBox.Header>
             <StackPanel>
                 <DockPanel>
-                    <Label Content="Voornaam:" Margin="5" FontSize="15"/>
+                    <Label Content="Voornaam:" Margin="5"/>
                     <TextBox x:Name="txtVoornaam" Margin="5"/>
                 </DockPanel>
                 <DockPanel>
-                    <Label Content="Achternaam:" Margin="5" FontSize="15"/>
+                    <Label Content="Achternaam:" Margin="5"/>
                     <TextBox x:Name="txtAchternaam" Margin="5"/>
                 </DockPanel>
                 <DockPanel>
-                    <Label Content="Club:" Margin="5" FontSize="15"/>
+                    <Label Content="Club:" Margin="5"/>
                     <TextBox x:Name="txtClub" Margin="5"/>
                 </DockPanel>
                 <DockPanel>
-                    <Label Content="Shirtnummer:" Margin="5" FontSize="15"/>
+                    <Label Content="Shirtnummer:" Margin="5"/>
                     <TextBox x:Name="txtShirtnummer" Margin="5"/>
                 </DockPanel>
                 <DockPanel Margin="5">
-                    <Label Content="Positie" Margin="5" FontSize="15"/>
-                    <CheckBox x:Name="cbDoelman" Content="DOELMAN" Margin="10" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="cbVerdediger" Content="VERDEDIGER" Margin="10" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="cbMiddenvelder" Content="MIDDENVELDER" Margin="10" VerticalAlignment="Center"/>
-                    <CheckBox x:Name="cbAanvaller" Content="AANVALLER" Margin="10" VerticalAlignment="Center"/>
+                    <Label Content="Positie" Margin="5"/>
+                    <RadioButton x:Name="rbDoelman" Content="DOELMAN" Margin="10,10,15,10" VerticalAlignment="Center"/>
+                    <RadioButton x:Name="rbVerdediger" Content="VERDEDIGER" Margin="10,10,15,10" VerticalAlignment="Center"/>
+                    <RadioButton x:Name="rbMiddenvelder" Content="MIDDENVELDER" Margin="10,10,15,10" VerticalAlignment="Center"/>
+                    <RadioButton x:Name="rbAanvaller" Content="AANVALLER" Margin="10,10,15,10" VerticalAlignment="Center"/>
                 </DockPanel>
             </StackPanel>
         </GroupBox>
