@@ -32,7 +32,7 @@
             <GroupBox.Header>
                 <Label Content="RANGSCHIKKING" FontSize="20"/>
             </GroupBox.Header>
-            <DataGrid x:Name="dataRangschikking" IsReadOnly="True" AutoGenerateColumns="False" Background="LightGray" BorderThickness="0" LoadingRow="dataRangschikking_LoadingRow"  MinHeight="480">
+            <DataGrid x:Name="datagridRangschikking" IsReadOnly="True" AutoGenerateColumns="False" Background="LightGray" BorderThickness="0" LoadingRow="dataRangschikking_LoadingRow"  MinHeight="480">
                 <DataGrid.Columns>
                     <DataGridTextColumn Binding="{Binding Clubs.Clubnaam}" Header="Clubnaam"/>
                     <DataGridTextColumn Binding="{Binding Winst}" Header="Winst"/>

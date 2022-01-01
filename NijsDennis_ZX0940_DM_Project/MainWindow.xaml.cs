@@ -29,7 +29,7 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            dataRangschikking.ItemsSource = DatabaseOperations.OphalenRangschikking();
+            datagridRangschikking.ItemsSource = DatabaseOperations.OphalenRangschikking();
         }
 
         private void dataRangschikking_LoadingRow(object sender, DataGridRowEventArgs e)
@@ -53,7 +53,7 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            dataRangschikking.ItemsSource = DatabaseOperations.OphalenRangschikking();
+            datagridRangschikking.ItemsSource = DatabaseOperations.OphalenRangschikking();
         }
 
         private void btnMatchUitslagen_Click(object sender, RoutedEventArgs e)
@@ -62,10 +62,10 @@ namespace NijsDennis_ZX0940_DM_Project
             matchenUitslagenWindow.Show();
         }
 
-        private void btnBekijkStatistieken_Click(object sender, RoutedEventArgs e)
+        private void btnBeheerSpelersEnTeams_Click(object sender, RoutedEventArgs e)
         {
-            StatistiekenWindow statistiekenWindow = new StatistiekenWindow();
-            statistiekenWindow.Show();
+            SpelerMenuWindow spelerMenuWindow = new SpelerMenuWindow();
+            spelerMenuWindow.Show();
         }
 
         private void btnSluiten_Click(object sender, RoutedEventArgs e)
@@ -73,10 +73,6 @@ namespace NijsDennis_ZX0940_DM_Project
             App.Current.Shutdown();
         }
 
-        private void btnBeheerSpelersEnTeams_Click(object sender, RoutedEventArgs e)
-        {
-            SpelerMenuWindow spelerMenuWindow = new SpelerMenuWindow();
-            spelerMenuWindow.Show();
-        }
+
     }
 }
