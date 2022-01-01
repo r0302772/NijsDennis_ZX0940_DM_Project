@@ -35,28 +35,19 @@ namespace NijsDennis_ZX0940_DM_Project
         private void btnVorigeGameweek_Click(object sender, RoutedEventArgs e)
         {
             speeldag--;
-            datagridWedstrijdenSpeeldag.ItemsSource = DatabaseOperations.OphalenWedstrijdenSpeeldag(speeldag);
-            lblHuidigeGameweek.Content = $"GAMEWEEK {speeldag}";
-            rbThuisploeg.Content = "Thuisploeg";
-            rbUitploeg.Content = "Uitploeg";
+            Resetten();
         }
 
         private void btnGameweek18_Click(object sender, RoutedEventArgs e)
         {
             speeldag = 18;
-            datagridWedstrijdenSpeeldag.ItemsSource = DatabaseOperations.OphalenWedstrijdenSpeeldag(speeldag);
-            lblHuidigeGameweek.Content = $"GAMEWEEK {speeldag}";
-            rbThuisploeg.Content = "Thuisploeg";
-            rbUitploeg.Content = "Uitploeg";
+            Resetten();
         }
 
         private void btnVolgendeGameweek_Click(object sender, RoutedEventArgs e)
         {
             speeldag++;
-            datagridWedstrijdenSpeeldag.ItemsSource = DatabaseOperations.OphalenWedstrijdenSpeeldag(speeldag);
-            lblHuidigeGameweek.Content = $"GAMEWEEK {speeldag}";
-            rbThuisploeg.Content = "Thuisploeg";
-            rbUitploeg.Content = "Uitploeg";
+            Resetten();
         }
 
         private void datagridWedstrijdenSpeeldag_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -65,15 +56,16 @@ namespace NijsDennis_ZX0940_DM_Project
             {
                 rbThuisploeg.Content = wedstrijd.ThuisClubs.Clubnaam;
                 rbUitploeg.Content = wedstrijd.UitClubs.Clubnaam;
-                datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijd(wedstrijd.WedstrijdID);
 
                 if (rbThuisploeg.IsChecked == true)
                 {
                     datagridSpelersClub.ItemsSource = DatabaseOperations.OphalenSpelersViaClubID(wedstrijd.ThuisClubID);
+                    datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijd(wedstrijd.WedstrijdID, wedstrijd.ThuisClubID);
                 }
                 else if (rbUitploeg.IsChecked == true)
                 {
                     datagridSpelersClub.ItemsSource = DatabaseOperations.OphalenSpelersViaClubID(wedstrijd.UitClubID);
+                    datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijd(wedstrijd.WedstrijdID, wedstrijd.UitClubID);
                 }
             }
         }
@@ -83,6 +75,7 @@ namespace NijsDennis_ZX0940_DM_Project
             if (datagridWedstrijdenSpeeldag.SelectedItem is Wedstrijd wedstrijd)
             {
                 datagridSpelersClub.ItemsSource = DatabaseOperations.OphalenSpelersViaClubID(wedstrijd.ThuisClubID);
+                datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijd(wedstrijd.WedstrijdID, wedstrijd.ThuisClubID);
             }
         }
 
@@ -91,6 +84,7 @@ namespace NijsDennis_ZX0940_DM_Project
             if (datagridWedstrijdenSpeeldag.SelectedItem is Wedstrijd wedstrijd)
             {
                 datagridSpelersClub.ItemsSource = DatabaseOperations.OphalenSpelersViaClubID(wedstrijd.UitClubID);
+                datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijd(wedstrijd.WedstrijdID, wedstrijd.UitClubID);
             }
         }
 
@@ -112,6 +106,16 @@ namespace NijsDennis_ZX0940_DM_Project
         private void btnSluiten_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Resetten()
+        {
+            datagridWedstrijdenSpeeldag.ItemsSource = DatabaseOperations.OphalenWedstrijdenSpeeldag(speeldag);
+            datagridSpelersClub.ItemsSource = null;
+            datagridSpelerWedstrijd.ItemsSource = null;
+            lblHuidigeGameweek.Content = $"GAMEWEEK {speeldag}";
+            rbThuisploeg.Content = "Thuisploeg";
+            rbUitploeg.Content = "Uitploeg";
         }
 
         private string Valideer(string columnName)

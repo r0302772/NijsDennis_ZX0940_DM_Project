@@ -9,31 +9,52 @@ namespace FantasyPremierLeague_DAL
 {
     public static class DatabaseOperations
     {
-        public static List<Speler> OphalenAlleSpelers(int clubId)
-        {
-            using (PremierLeagueEntities entities = new PremierLeagueEntities())
-            {
-                var query = entities.Spelers
-                    .Include(x => x.Clubs)
-                    .Where(x => x.ClubID == clubId)
-                    .OrderByDescending(x => x.Achternaam)
-                    .ThenByDescending(x => x.Clubs.Clubnaam);
-                return query.ToList();
-            }
-        }
-
-        public static List<SpelerWedstrijd> OphalenSpelerWedstrijd(int wedstrijdId)
+        public static List<SpelerWedstrijd> OphalenSpelerWedstrijd(int wedstrijdId, int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
                 var query = entities.SpelerWedstrijd
                     .Include(x => x.Spelers)
-                    .Include(x => x.Wedstrijden.ThuisClubs)
-                    .Include(x => x.Wedstrijden.UitClubs)
+                    .Include(x => x.Wedstrijden)
                     .Where(x => x.WedstrijdID == wedstrijdId)
+                    .Where(x => x.Spelers.ClubID == clubId)
                     .OrderByDescending(x => x.Doelpunt)
                     .ThenByDescending(x => x.Assist);
                 return query.ToList();
+            }
+        }
+
+        public static int AanpassenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Entry(spelerWedstrijd).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int VerwijderenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Entry(spelerWedstrijd).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
             }
         }
 
@@ -42,31 +63,31 @@ namespace FantasyPremierLeague_DAL
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
                 var query = entities.Clubs
-                    .OrderByDescending(x => x.Clubnaam);
+                    .OrderBy(x => x.Clubnaam);
                 return query.ToList();
             }
         }
 
-        public static List<Speler> OphalenSpelerViaNaam(string naam)
+        public static List<Spelerstatistiek> OphalenSpelerViaNaam(string naam)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
-                var query = entities.Spelers
-                    //.Where(x => x.VolledigeNaam.Contains(naam));
-                    .Where(x => x.Voornaam.Contains(naam) || x.Achternaam.Contains(naam));
+                var query = entities.Spelerstats
+                    .Include(x => x.Spelers)
+                //.Where(x => x.Spelers.VolledigeNaam.Contains(naam));
+                .Where(x => x.Spelers.Voornaam.Contains(naam) || x.Spelers.Achternaam.Contains(naam));
                 return query.ToList();
             }
         }
 
-        public static List<Speler> OphalenSpelersViaClubID(int clubId)
+        public static List<Spelerstatistiek> OphalenSpelersViaClubID(int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
-                var query = entities.Spelers
-                    .Include(x => x.Clubs)
-                    .Include(x => x.Spelerstat)
-                    .Where(x => x.ClubID == clubId)
-                    .OrderBy(x => x.Achternaam);
+                var query = entities.Spelerstats
+                    .Include(x => x.Spelers)
+                    .Where(x => x.Spelers.ClubID == clubId)
+                    .OrderBy(x => x.Spelers.Achternaam);
                 return query.ToList();
             }
         }

@@ -29,7 +29,9 @@ namespace NijsDennis_ZX0940_DM_Project
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbZoekClub.ItemsSource = DatabaseOperations.OphalenAlleClubs();
+            cmbClubSpeler.ItemsSource = DatabaseOperations.OphalenAlleClubs();
             cmbZoekClub.DisplayMemberPath = "Clubnaam";
+            cmbClubSpeler.DisplayMemberPath = "Clubnaam";
         }
 
         private void btnZoekSpeler_Click(object sender, RoutedEventArgs e)
@@ -37,8 +39,8 @@ namespace NijsDennis_ZX0940_DM_Project
             #region ZoekSpelerCode
             if (!string.IsNullOrWhiteSpace(txtZoekSpeler.Text))
             {
-                List<Speler> lijstSpelers = DatabaseOperations.OphalenSpelerViaNaam(txtZoekSpeler.Text);
-                if (lijstSpelers != null)
+                List<Spelerstatistiek> lijstSpelers = DatabaseOperations.OphalenSpelerViaNaam(txtZoekSpeler.Text);
+                if (lijstSpelers.Count() < 0)
                 {
                     datagridSpelers.ItemsSource = lijstSpelers;
                 }
@@ -59,8 +61,8 @@ namespace NijsDennis_ZX0940_DM_Project
             #region ZoekClubCode
             if (cmbZoekClub.SelectedItem is Club club)
             {
-                List<Speler> lijstSpelers = DatabaseOperations.OphalenSpelersViaClubID(club.ClubID);
-                if (lijstSpelers != null)
+                List<Spelerstatistiek> lijstSpelers = DatabaseOperations.OphalenSpelersViaClubID(club.ClubID);
+                if (lijstSpelers.Count() < 0)
                 {
                     datagridSpelers.ItemsSource = lijstSpelers;
                 }
@@ -79,21 +81,20 @@ namespace NijsDennis_ZX0940_DM_Project
         private void datagridSpelers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             #region SelectionChangedCode
-            if (datagridSpelers.SelectedItem is Speler speler)
+            if (datagridSpelers.SelectedItem is Spelerstatistiek spelerstatistiek)
             {
-                txtVoornaam.Text = speler.Voornaam;
-                txtAchternaam.Text = speler.Achternaam;
-                txtClub.Text = speler.Clubs.Clubnaam;
-                txtShirtnummer.Text = speler.Shirtnummer;
-                if (speler.Positie == "D")
+                txtVoornaam.Text = spelerstatistiek.Spelers.Voornaam;
+                txtAchternaam.Text = spelerstatistiek.Spelers.Achternaam;
+                txtShirtnummer.Text = spelerstatistiek.Spelers.Shirtnummer;
+                if (spelerstatistiek.Spelers.Positie == "D")
                 {
                     rbDoelman.IsChecked = true;
                 }
-                else if (speler.Positie == "V")
+                else if (spelerstatistiek.Spelers.Positie == "V")
                 {
                     rbVerdediger.IsChecked = true;
                 }
-                else if (speler.Positie == "M")
+                else if (spelerstatistiek.Spelers.Positie == "M")
                 {
                     rbMiddenvelder.IsChecked = true;
                 }
@@ -132,7 +133,7 @@ namespace NijsDennis_ZX0940_DM_Project
                     Speler nieuweSpeler = new Speler();
                     nieuweSpeler.Voornaam = txtVoornaam.Text;
                     nieuweSpeler.Achternaam = txtAchternaam.Text;
-                    nieuweSpeler.Clubs.Clubnaam = txtClub.Text;
+                    nieuweSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
                     nieuweSpeler.Shirtnummer = txtShirtnummer.Text;
                     if (rbAanvaller.IsChecked == true)
                     {
@@ -176,7 +177,7 @@ namespace NijsDennis_ZX0940_DM_Project
                     Speler bestaandeSpeler = datagridSpelers.SelectedItem as Speler;
                     bestaandeSpeler.Voornaam = txtVoornaam.Text;
                     bestaandeSpeler.Achternaam = txtAchternaam.Text;
-                    bestaandeSpeler.Clubs.Clubnaam = txtClub.Text;
+                    bestaandeSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
                     bestaandeSpeler.Shirtnummer = txtShirtnummer.Text;
                     if (rbAanvaller.IsChecked == true)
                     {
@@ -226,7 +227,7 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private void btnSluiten_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            this.Close();
         }
 
         private void Resetten()
@@ -235,7 +236,7 @@ namespace NijsDennis_ZX0940_DM_Project
             datagridSpelers.SelectedIndex = -1;
             txtVoornaam.Clear();
             txtAchternaam.Clear();
-            txtClub.Clear();
+            cmbClubSpeler.SelectedIndex = -1;
             txtShirtnummer.Clear();
             txtZoekSpeler.Clear();
             rbAanvaller.IsChecked = false;
@@ -256,7 +257,7 @@ namespace NijsDennis_ZX0940_DM_Project
             {
                 return "Vul een achternaam in.\n";
             }
-            if (columnName == "Clubs.Clubnaam" && string.IsNullOrWhiteSpace(txtClub.Text))
+            if (columnName == "Clubs.Clubnaam" && string.IsNullOrWhiteSpace(cmbClubSpeler.SelectedItem.ToString()))
             {
                 return "Vul een club in.\n";
             }
@@ -271,6 +272,11 @@ namespace NijsDennis_ZX0940_DM_Project
             }
             return "";
             #endregion
+        }
+
+        private void btnVerwijderSpeler_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

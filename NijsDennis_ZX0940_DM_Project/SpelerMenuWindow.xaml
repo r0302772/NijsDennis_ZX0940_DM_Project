@@ -30,19 +30,17 @@
         <DataGrid x:Name="datagridSpelers" AutoGenerateColumns="False" Background="LightGray" 
                   BorderThickness="1" BorderBrush="#FF3D195D" Grid.Row="1" Grid.ColumnSpan="4" FontSize="15" 
                   Margin="5" MinHeight="200" MaxHeight="200" ScrollViewer.CanContentScroll="True"
-                  SelectionChanged="datagridSpelers_SelectionChanged">
-            //https://stackoverflow.com/questions/673516/how-can-i-enable-scrollbars-on-the-wpf-datagrid
+                  SelectionChanged="datagridSpelers_SelectionChanged" IsReadOnly="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding SpelerID}" Header="#"/>
-                <DataGridTextColumn Binding="{Binding VolledigeNaam}" Header="Spelernaam"/>
-                <DataGridTextColumn Binding="{Binding Clubs.Clubnaam}" Header="Clubnaam"/>
-                <DataGridTextColumn Binding="{Binding Positie}" Header="Positie"/>
-                <DataGridTextColumn Binding="{Binding Shirtnummer}" Header="Shirtnummer"/>
-                <DataGridTextColumn Binding="{Binding Spelerstatistiek.Doelpunt}" Header="Goals"/>
-                <DataGridTextColumn Binding="{Binding Spelerstatistiek.Assist}" Header="Assists"/>
-                <DataGridTextColumn Binding="{Binding Spelerstatistiek.GeleKaart}" Header="Gele Kaart"/>
-                <DataGridTextColumn Binding="{Binding Spelerstatistiek.RodeKaart}" Header="Rode Kaart"/>
-                <DataGridTextColumn Binding="{Binding Spelerstatistiek.Owngoal}" Header="Owngoals"/>
+                <DataGridTextColumn Binding="{Binding Spelers.VolledigeNaam}" Header="Spelernaam"/>
+                <DataGridTextColumn Binding="{Binding Spelers.Positie}" Header="Positie"/>
+                <DataGridTextColumn Binding="{Binding Spelers.Shirtnummer}" Header="Shirtnummer"/>
+                <DataGridTextColumn Binding="{Binding Doelpunt}" Header="Goals"/>
+                <DataGridTextColumn Binding="{Binding Assist}" Header="Assists"/>
+                <DataGridTextColumn Binding="{Binding GeleKaart}" Header="Gele Kaart"/>
+                <DataGridTextColumn Binding="{Binding RodeKaart}" Header="Rode Kaart"/>
+                <DataGridTextColumn Binding="{Binding Owngoal}" Header="Owngoals"/>
             </DataGrid.Columns>
         </DataGrid>
 
@@ -86,7 +84,7 @@
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Club:" Margin="5"/>
-                    <TextBox x:Name="txtClub" Margin="5"/>
+                    <ComboBox x:Name="cmbClubSpeler" Margin="5"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Shirtnummer:" Margin="5"/>
@@ -103,9 +101,10 @@
         </GroupBox>
 
         <Label Content="**Doelpunten, assists,... kunnen enkel worden aangepast in Matchen &amp; Uitslagen.**" Grid.Row="4" Grid.ColumnSpan="3" FontSize="15"/>
-
-        <Button x:Name="btnAnnuleren" Content="ANNULEREN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="1" Grid.Row="3" Click="btnAnnuleren_Click"/>
-        <Button x:Name="btnNieuweSpeler" Content="NIEUWE SPELER" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="2" Grid.Row="3" Click="btnNieuweSpeler_Click"/>
+        
+        <Button x:Name="btnNieuweSpeler" Content="ADD SPELER" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Row="3" Click="btnNieuweSpeler_Click"/>
+        <Button x:Name="btnVerwijderSpeler" Content="DELETE SPELER" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="1" Grid.Row="3" Click="btnVerwijderSpeler_Click"/>
+        <Button x:Name="btnAnnuleren" Content="ANNULEREN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="2" Grid.Row="3" Click="btnAnnuleren_Click"/>
         <Button x:Name="btnOpslaan" Content="OPSLAAN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="3" Grid.Row="3" Click="btnOpslaan_Click"/>
         <Button x:Name="btnSluiten" Content="SLUITEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="3" Grid.Row="4" Click="btnSluiten_Click"/>
     </Grid>
