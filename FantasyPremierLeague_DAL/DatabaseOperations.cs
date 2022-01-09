@@ -9,7 +9,7 @@ namespace FantasyPremierLeague_DAL
 {
     public static class DatabaseOperations
     {
-        public static List<SpelerWedstrijd> OphalenSpelerWedstrijd(int wedstrijdId, int clubId)
+        public static List<SpelerWedstrijd> OphalenSpelerWedstrijdViaWedstrijdEnClub(int wedstrijdId, int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
@@ -68,7 +68,7 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
-        public static List<Spelerstatistiek> OphalenSpelerViaNaam(string naam)
+        public static List<Spelerstatistiek> OphalenSpelerstatistiekViaNaam(string naam)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
@@ -80,7 +80,18 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
-        public static List<Spelerstatistiek> OphalenSpelersViaClubID(int clubId)
+        public static List<Speler> OphalenSpelersViaClubID(int clubId)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.Spelers
+                    .Where(x => x.ClubID == clubId)
+                    .OrderBy(x => x.Achternaam);
+                return query.ToList();
+            }
+        }    
+        
+        public static List<Spelerstatistiek> OphalenSpelerstatistiekViaClubID(int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
