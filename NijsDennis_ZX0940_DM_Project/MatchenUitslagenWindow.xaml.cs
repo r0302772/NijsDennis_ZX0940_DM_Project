@@ -90,38 +90,95 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private void btnSpelerWedstrijdToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            //if (datagridSpelersClub.SelectedItem is Speler speler)
-            //{
-            //    if (!string.IsNullOrWhiteSpace(txtActies.Text))
-            //    {
-            //        if (speler.SpelerID != spelerWedstrijd.SpelerID)
-            //        {
-            //            spelerWedstrijd = new SpelerWedstrijd();
+            if (datagridWedstrijdenSpeeldag.SelectedItem is Wedstrijd wedstrijd)
+            {
+                if (datagridSpelersClub.SelectedItem is Speler speler)
+                {
+                    int ok = DatabaseOperations.SpelerZoekenInSpelerWedstrijd(wedstrijd.WedstrijdID, speler.SpelerID);
+                    if (ok > 0)
+                    {
+                        MessageBox.Show("Deze speler zit al in de wedstrijdstats.");
+                    }
+                    else
+                    {
+                        SpelerWedstrijd spelerWedstrijd = new SpelerWedstrijd();
+                        spelerWedstrijd.SpelerID = speler.SpelerID;
+                        spelerWedstrijd.WedstrijdID = wedstrijd.WedstrijdID;
+                        spelerWedstrijd.Doelpunt = 0;
+                        spelerWedstrijd.Assist = 0;
+                        spelerWedstrijd.GeleKaart = 0;
+                        spelerWedstrijd.RodeKaart = 0;
+                        spelerWedstrijd.Owngoal = 0;
 
-            //            if (cmbActies.SelectedItem.ToString() == "Goal(s)")
-            //            {
-            //                spelerWedstrijd.Doelpunt = 0;
-            //            }
-            //        }
-
-            //    }
-            //}
+                        int ok2 = DatabaseOperations.ToevoegenSpelerWedstrijd(spelerWedstrijd);
+                        if (ok2 > 0)
+                        {
+                            datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijdViaWedstrijdEnClub(wedstrijd.WedstrijdID, speler.ClubID);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Er is iets misgelopen bij het toevoegen van '{spelerWedstrijd.Spelers.VolledigeNaam}'");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecteer een speler uit de club.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een wedstrijd.");
+            }
         }
 
         private void btnSpelerWedstrijdVerwijderen_Click(object sender, RoutedEventArgs e)
         {
-            SpelerWedstrijd spelerWedstrijd = datagridSpelerWedstrijd.SelectedItem as SpelerWedstrijd;
-            int wedstrijdId = spelerWedstrijd.WedstrijdID;
-            int clubId = spelerWedstrijd.Spelers.ClubID;
-
-            int ok = DatabaseOperations.VerwijderenSpelerWedstrijd(spelerWedstrijd);
-            if (ok > 0)
+            if (datagridWedstrijdenSpeeldag.SelectedItem is Wedstrijd wedstrijd)
             {
-                datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijdViaWedstrijdEnClub(wedstrijdId, clubId);
+                if (datagridSpelerWedstrijd.SelectedItem is SpelerWedstrijd spelerWedstrijd)
+                {
+                    spelerWedstrijd = datagridSpelerWedstrijd.SelectedItem as SpelerWedstrijd;
+                    int wedstrijdId = spelerWedstrijd.WedstrijdID;
+                    int clubId = spelerWedstrijd.Spelers.ClubID;
+
+                    MessageBoxResult bevestiging = MessageBox.Show($"U staat op het punt om '{spelerWedstrijd.Spelers.VolledigeNaam}' te verwijderen.", "Weet u het zeker?", MessageBoxButton.YesNo);
+
+                    if (bevestiging == MessageBoxResult.Yes)
+                    {
+                        int ok = DatabaseOperations.VerwijderenSpelerWedstrijd(spelerWedstrijd);
+                        if (ok > 0)
+                        {
+                            datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijdViaWedstrijdEnClub(wedstrijdId, clubId);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Er is iets misgelopen, '{spelerWedstrijd.Spelers.VolledigeNaam}' is niet verwijderd.");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecteer een speler uit de rechtertabel.");
+                }
             }
             else
             {
-                MessageBox.Show("Speler is niet verwijderd.");
+                MessageBox.Show("Selecteer een wedstrijd.");
+            }
+        }
+
+        private void btnOpslaan_Click(object sender, RoutedEventArgs e)
+        {
+            string foutmeldingen = Valideer("Doelpunt");
+            foutmeldingen += Valideer("Assist");
+            foutmeldingen += Valideer("GeleKaart");
+            foutmeldingen += Valideer("RodeKaart");
+            foutmeldingen += Valideer("Owngoal");
+
+            if (string.IsNullOrWhiteSpace(foutmeldingen))
+            {
+
             }
         }
 
@@ -142,18 +199,26 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private string Valideer(string columnName)
         {
-            if (columnName == "Speeldag" && speeldag < 1 || speeldag > 38)
+            if (columnName == "Doelpunt" && datagridSpelerWedstrijd.CurrentColumn)
             {
-                return "De speeldagen gaan van 1 tot 38.";
+                return "Het aantal doelpunten kan niet onder 0.\n";
             }
-            //if (columnName == "ThuisClubScore" && )
-            //{
-            //    return "De score van de thuisclub kan niet onder 0.";
-            //}
-            //if (columnName == "UitClubScore")
-            //{
-            //    return "De score van de uitclub kan niet onder 0.";
-            //}
+            if (columnName == "Assist" && Assist < 0)
+            {
+                return "Het aantal assists kan niet onder 0.\n";
+            }
+            if (columnName == "GeleKaart" && GeleKaart < 0)
+            {
+                return "Het aantal gele kaarten kan niet onder 0.\n";
+            }
+            if (columnName == "RodeKaart" && RodeKaart < 0)
+            {
+                return "Het aantal rode kaarten kan niet onder 0.\n";
+            }
+            if (columnName == "Owngoal" && Owngoal < 0)
+            {
+                return "Het aantal owngoals kan niet onder 0.\n";
+            }
             return "";
         }
     }

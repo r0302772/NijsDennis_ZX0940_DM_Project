@@ -24,6 +24,35 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
+        public static SpelerWedstrijd OphalenSpelerWedstrijdViaWedstrijdEnSpeler(int wedstrijdId, int spelerId)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.SpelerWedstrijd
+                    .Where(x => x.WedstrijdID == wedstrijdId)
+                    .Where(x => x.SpelerID == spelerId);
+                return query.SingleOrDefault();
+            }
+        }
+
+        public static int SpelerZoekenInSpelerWedstrijd(int wedstrijdId, int spelerId)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    var query = entities.SpelerWedstrijd
+                    .Where(x => x.WedstrijdID == wedstrijdId)
+                    .Where(x => x.SpelerID == spelerId);
+                    return query.Count();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
         public static int AanpassenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd)
         {
             try
@@ -89,8 +118,8 @@ namespace FantasyPremierLeague_DAL
                     .OrderBy(x => x.Achternaam);
                 return query.ToList();
             }
-        }    
-        
+        }
+
         public static List<Spelerstatistiek> OphalenSpelerstatistiekViaClubID(int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
@@ -110,6 +139,23 @@ namespace FantasyPremierLeague_DAL
                 using (PremierLeagueEntities entities = new PremierLeagueEntities())
                 {
                     entities.Spelers.Add(speler);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int ToevoegenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.SpelerWedstrijd.Add(spelerWedstrijd);
                     return entities.SaveChanges();
                 }
             }
