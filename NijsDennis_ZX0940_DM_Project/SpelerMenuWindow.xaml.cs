@@ -133,7 +133,7 @@ namespace NijsDennis_ZX0940_DM_Project
                     Speler nieuweSpeler = new Speler();
                     nieuweSpeler.Voornaam = txtVoornaam.Text;
                     nieuweSpeler.Achternaam = txtAchternaam.Text;
-                    //nieuweSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
+                    nieuweSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
                     nieuweSpeler.Shirtnummer = txtShirtnummer.Text;
                     if (rbAanvaller.IsChecked == true)
                     {
@@ -177,7 +177,7 @@ namespace NijsDennis_ZX0940_DM_Project
                     Speler bestaandeSpeler = datagridSpelers.SelectedItem as Speler;
                     bestaandeSpeler.Voornaam = txtVoornaam.Text;
                     bestaandeSpeler.Achternaam = txtAchternaam.Text;
-                    //bestaandeSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
+                    bestaandeSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
                     bestaandeSpeler.Shirtnummer = txtShirtnummer.Text;
                     if (rbAanvaller.IsChecked == true)
                     {

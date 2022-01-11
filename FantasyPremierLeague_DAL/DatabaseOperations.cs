@@ -9,6 +9,58 @@ namespace FantasyPremierLeague_DAL
 {
     public static class DatabaseOperations
     {
+        public static int AanpassenWedstrijd(Wedstrijd wedstrijd)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Entry(wedstrijd).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+
+        }
+
+        public static int AanpassenRangschikking(Clubstatistiek clubstatistiek)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Entry(clubstatistiek).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int AanpassenSpelerstats(Spelerstatistiek spelerstatistiek)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Entry(spelerstatistiek).State = EntityState.Modified;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
         public static List<SpelerWedstrijd> OphalenSpelerWedstrijdViaWedstrijdEnClub(int wedstrijdId, int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
@@ -128,6 +180,38 @@ namespace FantasyPremierLeague_DAL
                     .Include(x => x.Spelers)
                     .Where(x => x.Spelers.ClubID == clubId)
                     .OrderBy(x => x.Spelers.Achternaam);
+                return query.ToList();
+            }
+        }
+
+        public static List<SpelerWedstrijd> OphalenSpelerWedstrijdMetSlechteWaardes()
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.SpelerWedstrijd
+                .Where(x => x.Doelpunt <= 0 && x.Assist <= 0 && x.GeleKaart <= 0 && x.RodeKaart <= 0 && x.Owngoal <= 0);
+                return query.ToList();
+            }
+        }
+
+        public static List<SpelerWedstrijd> OphalenSpelerWedstrijdViaWedstrijd(Wedstrijd wedstrijd)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.SpelerWedstrijd
+                .Where(x => x.WedstrijdID == wedstrijd.WedstrijdID);
+                return query.ToList();
+            }
+        }
+
+        public static List<SpelerWedstrijd> OphalenWedstrijdSpelerWedstrijdViaWedstrijd(Wedstrijd wedstrijd)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.SpelerWedstrijd
+                    .Include(x => x.Spelers.Clubs)
+                    .Include(x => x.Spelers.Spelerstat)
+                .Where(x => x.WedstrijdID == wedstrijd.WedstrijdID);
                 return query.ToList();
             }
         }

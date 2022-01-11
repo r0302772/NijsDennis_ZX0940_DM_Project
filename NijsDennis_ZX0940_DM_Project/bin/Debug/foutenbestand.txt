@@ -1,0 +1,9 @@
+20:12:07 
+DbUpdateConcurrencyException
+Store update, insert, or delete statement affected an unexpected number of rows (0). Entities may have been modified or deleted since entities were loaded. See http://go.microsoft.com/fwlink/?LinkId=472540 for information on understanding and handling optimistic concurrency exceptions.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.AanpassenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 99
+--------------------------------------------------------------------------------
+
