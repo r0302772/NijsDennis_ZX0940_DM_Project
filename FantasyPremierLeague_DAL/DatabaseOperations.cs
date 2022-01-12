@@ -105,6 +105,20 @@ namespace FantasyPremierLeague_DAL
                 return 0;
             }
         }
+
+        public static List<Spelerstatistiek> SpelerstatsZoekenViaSpelerWedstrijdSpelerID(int spelerWedstrijdSpelerId)
+        {
+
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.Spelerstats
+                    .Include(x => x.Spelers.SpelerWedstrijd)
+                    .Where(x => x.SpelerID == spelerWedstrijdSpelerId);
+                return query.ToList();
+            }
+
+        }
+
         public static int AanpassenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd)
         {
             try
@@ -172,14 +186,24 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
+        public static Spelerstatistiek OphalenSpelerstatistiekViaSpelerID(int spelerId)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.Spelerstats
+                    .Include(x => x.Spelers)
+                    .Where(x => x.SpelerID == spelerId);
+                return query.SingleOrDefault();
+            }
+        }
+
         public static List<Spelerstatistiek> OphalenSpelerstatistiekViaClubID(int clubId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
                 var query = entities.Spelerstats
                     .Include(x => x.Spelers)
-                    .Where(x => x.Spelers.ClubID == clubId)
-                    .OrderBy(x => x.Spelers.Achternaam);
+                    .Where(x => x.Spelers.ClubID == clubId);
                 return query.ToList();
             }
         }
@@ -282,6 +306,16 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
+        public static Clubstatistiek OphalenClubstatistiekViaClubID(int clubId)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.Clubstats
+                    .Where(x => x.ClubID == clubId);
+                return query.SingleOrDefault();
+            }
+        }
+
         public static List<Wedstrijd> OphalenWedstrijdenSpeeldag(int speeldag)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
@@ -290,6 +324,18 @@ namespace FantasyPremierLeague_DAL
                     .Include(x => x.ThuisClubs)
                     .Include(x => x.UitClubs)
                     .Where(x => x.Speeldag == speeldag);
+                return query.ToList();
+            }
+        }
+
+        public static List<Wedstrijd> OphalenWedstrijdenViaClubID(int clubId)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.Wedstrijden
+                    .Include(x => x.ThuisClubs)
+                    .Include(x => x.UitClubs)
+                    .Where(x => x.ThuisClubs.ClubID == clubId || x.UitClubs.ClubID == clubId);
                 return query.ToList();
             }
         }
