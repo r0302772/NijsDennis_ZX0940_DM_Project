@@ -121,6 +121,8 @@ namespace NijsDennis_ZX0940_DM_Project
                             MessageBox.Show($"Er is iets misgelopen bij het toevoegen van '{spelerWedstrijd.Spelers.VolledigeNaam}'");
                         }
                     }
+                    datagridWedstrijdenSpeeldag.SelectedItem = wedstrijd;
+                    datagridSpelersClub.SelectedIndex = 0;
                 }
                 else
                 {
@@ -170,6 +172,9 @@ namespace NijsDennis_ZX0940_DM_Project
                             MessageBox.Show($"Er is iets misgelopen, '{x.Spelers.VolledigeNaam}' is niet verwijderd.");
                         }
                     }
+
+                    datagridWedstrijdenSpeeldag.SelectedItem = wedstrijd;
+                    datagridSpelerWedstrijd.SelectedIndex = 0;
                 }
                 else
                 {
@@ -198,39 +203,17 @@ namespace NijsDennis_ZX0940_DM_Project
 
                     if (string.IsNullOrWhiteSpace(foutmeldingen))
                     {
+
+                        ScoreWedstrijdAanpassen(wedstrijd);
+                        Spelerstatistiek ss = SpelerstatsSpelerwedstrijdAanpassen(x);
+                        Clubstatistiek cs = ClubstatistiekClubsAanpassen(x);
+
                         if (x.IsGeldig())
                         {
                             int ok = DatabaseOperations.AanpassenSpelerWedstrijd(x);
-
-                            Spelerstatistiek ss = DatabaseOperations.OphalenSpelerstatistiekViaSpelerID(x.SpelerID);
-
-                            Clubstatistiek cs = DatabaseOperations.OphalenClubstatistiekViaClubID(x.Spelers.ClubID);
-
                             if (ok > 0)
                             {
                                 datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijdViaWedstrijdEnClub(wedstrijd.WedstrijdID, x.Spelers.ClubID);
-                                wedstrijd.ThuisClubScore = 0;
-                                wedstrijd.UitClubScore = 0;
-
-                                ss.Doelpunt += x.Doelpunt;
-                                ss.Assist += x.Assist;
-                                ss.GeleKaart += x.GeleKaart;
-                                ss.RodeKaart += x.RodeKaart;
-                                ss.Owngoal += x.Owngoal;
-
-                                foreach (SpelerWedstrijd s in DatabaseOperations.OphalenWedstrijdSpelerWedstrijdViaWedstrijd(wedstrijd))
-                                {
-                                    if (s.Spelers.ClubID == wedstrijd.ThuisClubID)
-                                    {
-                                        wedstrijd.ThuisClubScore += s.Doelpunt;
-                                        wedstrijd.UitClubScore += s.Owngoal;
-                                    }
-                                    else if (s.Spelers.ClubID == wedstrijd.UitClubID)
-                                    {
-                                        wedstrijd.UitClubScore += s.Doelpunt;
-                                        wedstrijd.ThuisClubScore += s.Owngoal;
-                                    }
-                                }
                             }
                             else
                             {
@@ -248,47 +231,20 @@ namespace NijsDennis_ZX0940_DM_Project
                             }
 
                             int ok2 = DatabaseOperations.AanpassenSpelerstats(ss);
-                            int ok3 = DatabaseOperations.AanpassenRangschikking(cs);
 
-                            if (ok2 > 0 && ok3 > 0)
-                            {
 
-                                ss.Doelpunt = 0;
-                                ss.Assist = 0;
-                                ss.GeleKaart = 0;
-                                ss.RodeKaart = 0;
-                                ss.Owngoal = 0;
-
-                                cs.Winst = 0;
-                                cs.Gelijk = 0;
-                                cs.Verlies = 0;
-                                cs.DoelpuntVoor = 0;
-                                cs.DoelpuntTegen = 0;
-
-                                foreach (Wedstrijd w in DatabaseOperations.OphalenWedstrijdenViaClubID(x.Spelers.ClubID))
-                                {
-                                    if (w.ThuisClubID == x.Spelers.ClubID)
-                                    {
-                                        cs.DoelpuntVoor += w.ThuisClubScore;
-                                        cs.DoelpuntTegen += w.UitClubScore;
-                                    }
-                                    else if (w.UitClubID == x.Spelers.ClubID)
-                                    {
-                                        cs.DoelpuntVoor += w.UitClubScore;
-                                        cs.DoelpuntTegen += w.ThuisClubScore;
-                                    }
-                                }
-                            }
-                            else if (ok2 == 0)
+                            if (ok2 == 0)
                             {
                                 MessageBox.Show($"Er is iets misgelopen de stats van '{x.Spelers.VolledigeNaam}' zijn niet aangepast.");
                             }
-                            else if (ok3 == 0)
+                            int ok3 = DatabaseOperations.AanpassenRangschikking(cs);
+                            if (ok3 == 0)
                             {
                                 MessageBox.Show($"Er is iets misgelopen de stats van '{x.Spelers.Clubs.Clubnaam}' zijn niet aangepast.");
                             }
 
                             datagridWedstrijdenSpeeldag.SelectedItem = wedstrijd;
+                            datagridSpelerWedstrijd.SelectedIndex = 0;
                         }
                         else
                         {
@@ -316,6 +272,77 @@ namespace NijsDennis_ZX0940_DM_Project
         private void btnSluiten_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ScoreWedstrijdAanpassen(Wedstrijd wedstrijd)
+        {
+            wedstrijd.ThuisClubScore = 0;
+            wedstrijd.UitClubScore = 0;
+
+            foreach (SpelerWedstrijd s in DatabaseOperations.OphalenWedstrijdSpelerWedstrijdViaWedstrijd(wedstrijd))
+            {
+                if (s.Spelers.ClubID == wedstrijd.ThuisClubID)
+                {
+                    wedstrijd.ThuisClubScore += s.Doelpunt;
+                    wedstrijd.UitClubScore += s.Owngoal;
+                }
+                else if (s.Spelers.ClubID == wedstrijd.UitClubID)
+                {
+                    wedstrijd.UitClubScore += s.Doelpunt;
+                    wedstrijd.ThuisClubScore += s.Owngoal;
+                }
+            }
+        }
+
+        private Spelerstatistiek SpelerstatsSpelerwedstrijdAanpassen(SpelerWedstrijd spelerWedstrijd)
+        {
+            Spelerstatistiek ss = DatabaseOperations.OphalenSpelerstatistiekViaSpelerID(spelerWedstrijd.SpelerID);
+            List<SpelerWedstrijd> sw = DatabaseOperations.OphalenSpelerWedstrijdViaSpelerId(spelerWedstrijd.SpelerID);
+
+            ss.Doelpunt = 0;
+            ss.Assist = 0;
+            ss.GeleKaart = 0;
+            ss.RodeKaart = 0;
+            ss.Owngoal = 0;
+
+            foreach (SpelerWedstrijd speler in sw)
+            {
+                ss.Doelpunt += speler.Doelpunt;
+                ss.Assist += speler.Assist;
+                ss.GeleKaart += speler.GeleKaart;
+                ss.RodeKaart += speler.RodeKaart;
+                ss.Owngoal += speler.Owngoal;
+            }
+
+            return ss;
+        }
+
+        private Clubstatistiek ClubstatistiekClubsAanpassen(SpelerWedstrijd x)
+        {
+            Clubstatistiek cs = DatabaseOperations.OphalenClubstatistiekViaClubID(x.Spelers.ClubID);
+            List<Wedstrijd> listwedstrijden = DatabaseOperations.OphalenWedstrijdenViaClubID(x.Spelers.ClubID);
+
+            cs.Winst = 0;
+            cs.Gelijk = 0;
+            cs.Verlies = 0;
+            cs.DoelpuntVoor = 0;
+            cs.DoelpuntTegen = 0;
+
+            foreach (Wedstrijd w in listwedstrijden)
+            {
+                if (w.ThuisClubID == x.Spelers.ClubID)
+                {
+                    cs.DoelpuntVoor += w.ThuisClubScore;
+                    cs.DoelpuntTegen += w.UitClubScore;
+                }
+                else if (w.UitClubID == x.Spelers.ClubID)
+                {
+                    cs.DoelpuntVoor += w.UitClubScore;
+                    cs.DoelpuntTegen += w.ThuisClubScore;
+                }
+            }
+
+            return cs;
         }
 
         private void Resetten()
@@ -354,5 +381,27 @@ namespace NijsDennis_ZX0940_DM_Project
             return "";
         }
 
+        private void btnBrilscore_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridWedstrijdenSpeeldag.SelectedItem is Wedstrijd wedstrijd)
+            {
+                if (wedstrijd.ThuisClubScore == null && wedstrijd.UitClubScore == null)
+                {
+                    wedstrijd.ThuisClubScore = 0;
+                    wedstrijd.UitClubScore = 0;
+
+                    int ok = DatabaseOperations.AanpassenWedstrijd(wedstrijd);
+                    if (ok > 0)
+                    {
+                        datagridWedstrijdenSpeeldag.ItemsSource = DatabaseOperations.OphalenWedstrijdenSpeeldag(wedstrijd.Speeldag);
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Er is iets misgelopen '{wedstrijd.ThuisClubs.Clubnaam} - {wedstrijd.UitClubs.Clubnaam}' is niet aangepast.");
+                    }
+                }
+
+            }
+        }
     }
 }

@@ -76,6 +76,7 @@
 
             <Button x:Name="btnSpelerWedstrijdToevoegen" Content="TOEVOEGEN" Background="#FF3D195D" Foreground="White" FontSize="25" Margin="5" Click="btnSpelerWedstrijdToevoegen_Click"/>
             <Button x:Name="btnSpelerWedstrijdVerwijderen" Content="VERWIJDEREN" Background="#FF3D195D" Foreground="White" FontSize="25" Margin="5" Click="btnSpelerWedstrijdVerwijderen_Click"/>
+            <Button x:Name="btnBrilscore" Content="GEEN GOALS" Background="#FF3D195D" Foreground="White" FontSize="25" Margin="5" Click="btnBrilscore_Click"/>
         </StackPanel>
 
         <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" >

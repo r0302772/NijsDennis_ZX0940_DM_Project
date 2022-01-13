@@ -76,6 +76,16 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
+        public static List<SpelerWedstrijd> OphalenSpelerWedstrijdViaSpelerId(int spelerId)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.SpelerWedstrijd
+                    .Where(x => x.SpelerID == spelerId);
+                return query.ToList();
+            }
+        }
+
         public static SpelerWedstrijd OphalenSpelerWedstrijdViaWedstrijdEnSpeler(int wedstrijdId, int spelerId)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
