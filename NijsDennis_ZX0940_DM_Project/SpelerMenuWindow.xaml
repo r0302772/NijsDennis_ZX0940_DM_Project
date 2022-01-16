@@ -84,7 +84,7 @@
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Club:" Margin="5"/>
-                    <ComboBox x:Name="cmbClubSpeler" Margin="5"/>
+                    <TextBox x:Name="txtClub" Margin="5"/>
                 </DockPanel>
                 <DockPanel>
                     <Label Content="Shirtnummer:" Margin="5"/>
@@ -102,10 +102,10 @@
 
         <Label Content="**Doelpunten, assists,... kunnen enkel worden aangepast in Matchen &amp; Uitslagen.**" Grid.Row="4" Grid.ColumnSpan="3" FontSize="15"/>
         
-        <Button x:Name="btnNieuweSpeler" Content="ADD SPELER" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Row="3" Click="btnNieuweSpeler_Click"/>
-        <Button x:Name="btnVerwijderSpeler" Content="DELETE SPELER" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="1" Grid.Row="3" Click="btnVerwijderSpeler_Click"/>
-        <Button x:Name="btnAnnuleren" Content="ANNULEREN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="2" Grid.Row="3" Click="btnAnnuleren_Click"/>
-        <Button x:Name="btnOpslaan" Content="OPSLAAN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="3" Grid.Row="3" Click="btnOpslaan_Click"/>
+        <Button x:Name="btnCreateSpeler" Content="CREATE" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Row="3" Click="btnCreateSpeler_Click"/>
+        <Button x:Name="btnUpdateSpeler" Content="UPDATE" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="1" Grid.Row="3" Click="btnUpdateSpeler_Click"/>
+        <Button x:Name="btnDeleteSpeler" Content="DELETE" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="2" Grid.Row="3" Click="btnDeleteSpeler_Click"/>
+        <Button x:Name="btnClear" Content="CLEAR" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="3" Grid.Row="3" Click="btnClear_Click"/>
         <Button x:Name="btnSluiten" Content="SLUITEN" FontSize="25" Margin="5" Background="#FF3D195D" Foreground="White" Grid.Column="3" Grid.Row="4" Click="btnSluiten_Click"/>
     </Grid>
 </Window>

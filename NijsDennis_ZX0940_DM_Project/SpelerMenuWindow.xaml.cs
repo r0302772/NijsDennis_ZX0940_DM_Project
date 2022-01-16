@@ -29,9 +29,7 @@ namespace NijsDennis_ZX0940_DM_Project
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             cmbZoekClub.ItemsSource = DatabaseOperations.OphalenAlleClubs();
-            cmbClubSpeler.ItemsSource = DatabaseOperations.OphalenAlleClubs();
             cmbZoekClub.DisplayMemberPath = "Clubnaam";
-            cmbClubSpeler.DisplayMemberPath = "Clubnaam";
         }
 
         private void btnZoekSpeler_Click(object sender, RoutedEventArgs e)
@@ -40,7 +38,7 @@ namespace NijsDennis_ZX0940_DM_Project
             if (!string.IsNullOrWhiteSpace(txtZoekSpeler.Text))
             {
                 List<Spelerstatistiek> lijstSpelers = DatabaseOperations.OphalenSpelerstatistiekViaNaam(txtZoekSpeler.Text);
-                if (lijstSpelers.Count() < 0)
+                if (lijstSpelers != null)
                 {
                     datagridSpelers.ItemsSource = lijstSpelers;
                 }
@@ -81,20 +79,22 @@ namespace NijsDennis_ZX0940_DM_Project
         private void datagridSpelers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             #region SelectionChangedCode
-            if (datagridSpelers.SelectedItem is Spelerstatistiek spelerstatistiek)
+            if (datagridSpelers.SelectedItem is Spelerstatistiek x)
             {
-                txtVoornaam.Text = spelerstatistiek.Spelers.Voornaam;
-                txtAchternaam.Text = spelerstatistiek.Spelers.Achternaam;
-                txtShirtnummer.Text = spelerstatistiek.Spelers.Shirtnummer;
-                if (spelerstatistiek.Spelers.Positie == "D")
+                txtVoornaam.Text = x.Spelers.Voornaam;
+                txtAchternaam.Text = x.Spelers.Achternaam;
+                txtShirtnummer.Text = x.Spelers.Shirtnummer;
+                txtClub.Text = x.Spelers.Clubs.Clubnaam;
+
+                if (x.Spelers.Positie == "D")
                 {
                     rbDoelman.IsChecked = true;
                 }
-                else if (spelerstatistiek.Spelers.Positie == "V")
+                else if (x.Spelers.Positie == "V")
                 {
                     rbVerdediger.IsChecked = true;
                 }
-                else if (spelerstatistiek.Spelers.Positie == "M")
+                else if (x.Spelers.Positie == "M")
                 {
                     rbMiddenvelder.IsChecked = true;
                 }
@@ -106,123 +106,173 @@ namespace NijsDennis_ZX0940_DM_Project
             #endregion
         }
 
-        private void btnAnnuleren_Click(object sender, RoutedEventArgs e)
+        private void btnCreateSpeler_Click(object sender, RoutedEventArgs e)
         {
-            Resetten();
-        }
-
-        private void btnNieuweSpeler_Click(object sender, RoutedEventArgs e)
-        {
-            Resetten();
-        }
-
-        private void btnOpslaan_Click(object sender, RoutedEventArgs e)
-        {
-            #region OpslaanCode
             string foutmeldingen = Valideer("Voornaam");
             foutmeldingen += Valideer("Achternaam");
-            foutmeldingen += Valideer("Clubnaam");
+            foutmeldingen += Valideer("Clubs");
             foutmeldingen += Valideer("Shirtnummer");
             foutmeldingen += Valideer("Positie");
 
             if (string.IsNullOrWhiteSpace(foutmeldingen))
             {
-                if (datagridSpelers.SelectedIndex == -1)
-                {
-                    #region NieuweSpelerToevoegen
-                    Speler nieuweSpeler = new Speler();
-                    nieuweSpeler.Voornaam = txtVoornaam.Text;
-                    nieuweSpeler.Achternaam = txtAchternaam.Text;
-                    nieuweSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
-                    nieuweSpeler.Shirtnummer = txtShirtnummer.Text;
-                    if (rbAanvaller.IsChecked == true)
-                    {
-                        nieuweSpeler.Positie = "A";
-                    }
-                    else if (rbMiddenvelder.IsChecked == true)
-                    {
-                        nieuweSpeler.Positie = "M";
-                    }
-                    else if (rbVerdediger.IsChecked == true)
-                    {
-                        nieuweSpeler.Positie = "V";
-                    }
-                    else
-                    {
-                        nieuweSpeler.Positie = "D";
-                    }
-                    if (nieuweSpeler.IsGeldig())
-                    {
-                        int ok = DatabaseOperations.ToevoegenSpeler(nieuweSpeler);
-                        if (ok > 0)
-                        {
-                            datagridSpelers.ItemsSource = DatabaseOperations.OphalenSpelerstatistiekViaNaam(nieuweSpeler.VolledigeNaam);
-                            Resetten();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Er is iets misgelopen, {nieuweSpeler.VolledigeNaam} is niet toegevoegd.");
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show(nieuweSpeler.Error);
-                    }
-                    #endregion
-                }
+                #region NieuweSpelerToevoegen
+                Speler x = new Speler();
+                Spelerstatistiek y = new Spelerstatistiek();
 
+                y.SpelerID = x.SpelerID;
+                y.Doelpunt = 0;
+                y.Assist = 0;
+                y.GeleKaart = 0;
+                y.RodeKaart = 0;
+                y.Owngoal = 0;
+
+                x.Voornaam = txtVoornaam.Text;
+                x.Achternaam = txtAchternaam.Text;
+                x.Clubs.Clubnaam = txtClub.Text; // Ik krijg deze foutmelding niet weggewerkt, een create van SpelerWedstrijd in de MatchenUitslagenWindow lukt wel
+                //Club c = txtClub.Text as Club;
+                //x.Clubs.ClubID = c.ClubID;
+                x.Shirtnummer = txtShirtnummer.Text;
+
+                if (rbAanvaller.IsChecked == true)
+                {
+                    x.Positie = "A";
+                }
+                else if (rbMiddenvelder.IsChecked == true)
+                {
+                    x.Positie = "M";
+                }
+                else if (rbVerdediger.IsChecked == true)
+                {
+                    x.Positie = "V";
+                }
                 else
                 {
-                    #region BestaandeSpelerAanpassen
-                    Speler bestaandeSpeler = datagridSpelers.SelectedItem as Speler;
-                    bestaandeSpeler.Voornaam = txtVoornaam.Text;
-                    bestaandeSpeler.Achternaam = txtAchternaam.Text;
-                    bestaandeSpeler.Clubs.Clubnaam = cmbClubSpeler.SelectedItem.ToString();
-                    bestaandeSpeler.Shirtnummer = txtShirtnummer.Text;
-                    if (rbAanvaller.IsChecked == true)
-                    {
-                        bestaandeSpeler.Positie = "A";
-                    }
-                    else if (rbMiddenvelder.IsChecked == true)
-                    {
-                        bestaandeSpeler.Positie = "M";
-                    }
-                    else if (rbVerdediger.IsChecked == true)
-                    {
-                        bestaandeSpeler.Positie = "V";
-                    }
-                    else
-                    {
-                        bestaandeSpeler.Positie = "D";
-                    }
-                    if (bestaandeSpeler.IsGeldig())
-                    {
-
-                        int ok = DatabaseOperations.AanpassenSpeler(bestaandeSpeler);
-                        if (ok > 0)
-                        {
-                            datagridSpelers.ItemsSource = DatabaseOperations.OphalenSpelerstatistiekViaNaam(bestaandeSpeler.VolledigeNaam);
-                            Resetten();
-                        }
-                        else
-                        {
-                            MessageBox.Show($"Er is iets misgelopen, {bestaandeSpeler.VolledigeNaam} is niet aangepast");
-                        }
-
-                    }
-                    else
-                    {
-                        MessageBox.Show(bestaandeSpeler.Error);
-                    }
-                    #endregion
+                    x.Positie = "D";
                 }
-
+                if (x.IsGeldig())
+                {
+                    int ok = DatabaseOperations.ToevoegenSpeler(x);
+                    int ok1 = DatabaseOperations.ToevoegenSpelerstat(y);
+                    if (ok > 0 && ok1 > 0)
+                    {
+                        datagridSpelers.ItemsSource = DatabaseOperations.OphalenSpelerstatistiekViaNaam(x.VolledigeNaam);
+                        Resetten();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Er is iets misgelopen, '{x.VolledigeNaam}' is niet toegevoegd.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(x.Error);
+                }
+                #endregion
             }
             else
             {
                 MessageBox.Show(foutmeldingen);
             }
-            #endregion
+        }
+
+        private void btnUpdateSpeler_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridSpelers.SelectedItem is Spelerstatistiek x)
+            {
+                string foutmeldingen = Valideer("Voornaam");
+                foutmeldingen += Valideer("Achternaam");
+                foutmeldingen += Valideer("Clubs");
+                foutmeldingen += Valideer("Shirtnummer");
+                foutmeldingen += Valideer("Positie");
+
+                if (string.IsNullOrWhiteSpace(foutmeldingen))
+                {
+                    #region BestaandeSpelerAanpassen
+                    x.Spelers.Voornaam = txtVoornaam.Text;
+                    x.Spelers.Achternaam = txtAchternaam.Text;
+                    x.Spelers.Clubs.Clubnaam = txtClub.Text;
+
+                    x.Spelers.Shirtnummer = txtShirtnummer.Text;
+                    if (rbAanvaller.IsChecked == true)
+                    {
+                        x.Spelers.Positie = "A";
+                    }
+                    else if (rbMiddenvelder.IsChecked == true)
+                    {
+                        x.Spelers.Positie = "M";
+                    }
+                    else if (rbVerdediger.IsChecked == true)
+                    {
+                        x.Spelers.Positie = "V";
+                    }
+                    else
+                    {
+                        x.Spelers.Positie = "D";
+                    }
+                    if (x.IsGeldig())
+                    {
+
+                        int ok = DatabaseOperations.AanpassenSpeler(x.Spelers);
+                        if (ok > 0)
+                        {
+                            datagridSpelers.ItemsSource = DatabaseOperations.OphalenSpelerstatistiekViaClubID(x.Spelers.ClubID);
+                            datagridSpelers.SelectedItem = x;
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Er is iets misgelopen, {x.Spelers.VolledigeNaam} is niet aangepast.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(x.Error);
+                    }
+                    #endregion
+                }
+                else
+                {
+                    MessageBox.Show(foutmeldingen);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een speler.");
+            }
+
+        }
+
+        private void btnDeleteSpeler_Click(object sender, RoutedEventArgs e)
+        {
+            if (datagridSpelers.SelectedItem is Spelerstatistiek x)
+            {
+                MessageBoxResult bevestiging = MessageBox.Show($"U staat op het punt om '{x.Spelers.VolledigeNaam}' te verwijderen.", "Weet u het zeker?", MessageBoxButton.YesNo);
+
+                if (bevestiging == MessageBoxResult.Yes)
+                {
+                    int ok = DatabaseOperations.VerwijderenSpelerEnSpelerstatistiek(x.Spelers, x);
+                    if (ok > 0)
+                    {
+                        datagridSpelers.ItemsSource = null;
+                        MessageBox.Show($"Gelukt, '{x.Spelers.VolledigeNaam}' is verwijderd!");
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Er is iets misgelopen, '{x.Spelers.VolledigeNaam}' is niet verwijderd.");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecteer een speler.");
+            }
+        }
+
+        private void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            Resetten();
+            datagridSpelers.ItemsSource = null;
         }
 
         private void btnSluiten_Click(object sender, RoutedEventArgs e)
@@ -236,7 +286,8 @@ namespace NijsDennis_ZX0940_DM_Project
             datagridSpelers.SelectedIndex = -1;
             txtVoornaam.Clear();
             txtAchternaam.Clear();
-            cmbClubSpeler.SelectedIndex = -1;
+            txtClub.Clear();
+            cmbZoekClub.SelectedIndex = -1;
             txtShirtnummer.Clear();
             txtZoekSpeler.Clear();
             rbAanvaller.IsChecked = false;
@@ -249,34 +300,25 @@ namespace NijsDennis_ZX0940_DM_Project
         private string Valideer(string columnName)
         {
             #region ValideerCode
-            if (columnName == "Voornaam" && string.IsNullOrWhiteSpace(txtVoornaam.Text))
-            {
-                return "Vul een voornaam in.\n";
-            }
             if (columnName == "Achternaam" && string.IsNullOrWhiteSpace(txtAchternaam.Text))
             {
                 return "Vul een achternaam in.\n";
             }
-            if (columnName == "Clubs.Clubnaam" && string.IsNullOrWhiteSpace(cmbClubSpeler.SelectedItem.ToString()))
+            if (columnName == "Clubs" && string.IsNullOrWhiteSpace(txtClub.Text) && DatabaseOperations.OphalenClubViaClubnaam(txtClub.Text) != null)
             {
-                return "Vul een club in.\n";
+                return "Vul een correcte club.\n";
             }
-            if (columnName == "Shirtnummer" && string.IsNullOrWhiteSpace(txtShirtnummer.Text) || !int.TryParse(txtShirtnummer.Text, out int shirtnummer))
+            if (columnName == "Shirtnummer" && !int.TryParse(txtShirtnummer.Text, out int shirtnummer))
             {
                 return "Shirtnummer moet een numerieke waarde zijn.\n";
             }
-            if (columnName == "Positie" && rbAanvaller.IsChecked == false || rbMiddenvelder.IsChecked == false ||
-                rbVerdediger.IsChecked == false || rbDoelman.IsChecked == false)
+            if (columnName == "Spelers.Positie" && rbAanvaller.IsChecked == false && rbMiddenvelder.IsChecked == false &&
+                rbVerdediger.IsChecked == false && rbDoelman.IsChecked == false)
             {
                 return "Duid een positie aan.";
             }
             return "";
             #endregion
-        }
-
-        private void btnVerwijderSpeler_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -7,3 +7,126 @@ Store update, insert, or delete statement affected an unexpected number of rows 
    bij FantasyPremierLeague_DAL.DatabaseOperations.AanpassenSpelerWedstrijd(SpelerWedstrijd spelerWedstrijd) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 99
 --------------------------------------------------------------------------------
 
+20:06:23 
+InvalidOperationException
+A referential integrity constraint violation occurred: The property value(s) of 'Club.ClubID' on one end of a relationship do not match the property value(s) of 'Speler.ClubID' on the other end.
+   bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij FantasyPremierLeague_DAL.DatabaseOperations.AanpassenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 293
+--------------------------------------------------------------------------------
+
+16:14:51 
+InvalidOperationException
+A referential integrity constraint violation occurred: The property value(s) of 'Club.ClubID' on one end of a relationship do not match the property value(s) of 'Speler.ClubID' on the other end.
+   bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij FantasyPremierLeague_DAL.DatabaseOperations.AanpassenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 330
+--------------------------------------------------------------------------------
+
+16:14:58 
+InvalidOperationException
+A referential integrity constraint violation occurred: The property value(s) of 'Club.ClubID' on one end of a relationship do not match the property value(s) of 'Speler.ClubID' on the other end.
+   bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij FantasyPremierLeague_DAL.DatabaseOperations.AanpassenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 330
+--------------------------------------------------------------------------------
+
+16:15:21 
+InvalidOperationException
+A referential integrity constraint violation occurred: The property value(s) of 'Club.ClubID' on one end of a relationship do not match the property value(s) of 'Speler.ClubID' on the other end.
+   bij System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.DataClasses.RelationshipManager.CheckReferentialConstraintProperties(EntityEntry ownerEntry)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachSingleObject(IEntityWrapper wrappedEntity, EntitySet entitySet)
+   bij System.Data.Entity.Core.Objects.ObjectContext.AttachTo(String entitySetName, Object entity)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.<>c__DisplayClass16_0.<Attach>b__0()
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   bij System.Data.Entity.Internal.Linq.InternalSet`1.Attach(Object entity)
+   bij System.Data.Entity.Internal.InternalEntityEntry.set_State(EntityState value)
+   bij System.Data.Entity.Infrastructure.DbEntityEntry`1.set_State(EntityState value)
+   bij FantasyPremierLeague_DAL.DatabaseOperations.AanpassenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 330
+--------------------------------------------------------------------------------
+
+20:26:34 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpelerstat(Spelerstatistiek spelerstatistiek) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 297
+--------------------------------------------------------------------------------
+
+20:26:53 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 280
+--------------------------------------------------------------------------------
+
+20:26:53 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpelerstat(Spelerstatistiek spelerstatistiek) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 297
+--------------------------------------------------------------------------------
+
+14:59:01 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 290
+--------------------------------------------------------------------------------
+
+15:00:40 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 290
+--------------------------------------------------------------------------------
+
+15:00:40 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpelerstat(Spelerstatistiek spelerstatistiek) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 307
+--------------------------------------------------------------------------------
+
+15:02:13 
+DbUpdateException
+An error occurred while updating the entries. See the inner exception for details.
+   bij System.Data.Entity.Internal.InternalContext.SaveChanges()
+   bij System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   bij System.Data.Entity.DbContext.SaveChanges()
+   bij FantasyPremierLeague_DAL.DatabaseOperations.ToevoegenSpeler(Speler speler) in C:\Users\Dennis Nijs\Documents\School\Programmeren Jaar 2\PE Opdracht DataMod DataMan\NijsDennis_ZX0940_DM_Project\FantasyPremierLeague_DAL\DatabaseOperations.cs:regel 290
+--------------------------------------------------------------------------------
+

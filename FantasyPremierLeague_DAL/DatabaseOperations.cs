@@ -163,6 +163,24 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
+        public static int VerwijderenSpelerEnSpelerstatistiek(Speler speler, Spelerstatistiek spelerstatistiek)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Entry(speler).State = EntityState.Deleted;
+                    entities.Entry(spelerstatistiek).State = EntityState.Deleted;
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
         public static List<Club> OphalenAlleClubs()
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
@@ -173,12 +191,23 @@ namespace FantasyPremierLeague_DAL
             }
         }
 
+        public static Club OphalenClubViaClubnaam(string clubnaam)
+        {
+            using (PremierLeagueEntities entities = new PremierLeagueEntities())
+            {
+                var query = entities.Clubs
+                    .Where(x => x.Clubnaam == clubnaam);
+                return query.SingleOrDefault();
+            }
+        }
+
         public static List<Spelerstatistiek> OphalenSpelerstatistiekViaNaam(string naam)
         {
             using (PremierLeagueEntities entities = new PremierLeagueEntities())
             {
                 var query = entities.Spelerstats
                     .Include(x => x.Spelers)
+                    .Include(x => x.Spelers.Clubs)
                 //.Where(x => x.Spelers.VolledigeNaam.Contains(naam));
                 .Where(x => x.Spelers.Voornaam.Contains(naam) || x.Spelers.Achternaam.Contains(naam));
                 return query.ToList();
@@ -213,6 +242,7 @@ namespace FantasyPremierLeague_DAL
             {
                 var query = entities.Spelerstats
                     .Include(x => x.Spelers)
+                    .Include(x => x.Spelers.Clubs)
                     .Where(x => x.Spelers.ClubID == clubId);
                 return query.ToList();
             }
@@ -257,6 +287,23 @@ namespace FantasyPremierLeague_DAL
                 using (PremierLeagueEntities entities = new PremierLeagueEntities())
                 {
                     entities.Spelers.Add(speler);
+                    return entities.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                FileOperations.FoutLoggen(ex);
+                return 0;
+            }
+        }
+
+        public static int ToevoegenSpelerstat(Spelerstatistiek spelerstatistiek)
+        {
+            try
+            {
+                using (PremierLeagueEntities entities = new PremierLeagueEntities())
+                {
+                    entities.Spelerstats.Add(spelerstatistiek);
                     return entities.SaveChanges();
                 }
             }

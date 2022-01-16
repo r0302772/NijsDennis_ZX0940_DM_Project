@@ -18,27 +18,23 @@ namespace FantasyPremierLeague_DAL
         {
             get
             {
-                if (columnName == "Voornaam" && Voornaam == "")
-                {
-                    return "Vul een voornaam in.\n";
-                }
                 if (columnName == "Achternaam" && Achternaam == "")
                 {
                     return "Vul een achternaam in.\n";
                 }
                 if (columnName == "Clubs.Clubnaam" && Clubs.Clubnaam == "")
                 {
-                    return "Vul een club in.\n";
+                    return "Vul een geldige club in.\n";
                 }
                 if (columnName == "Shirtnummer" && Shirtnummer == "" || !int.TryParse(Shirtnummer, out int shirtnummer) || int.Parse(Shirtnummer) > 100)
                 {
                     return "Shirtnummer moet een numerieke waarde zijn lager dan 100.\n";
                 }
-                if (columnName == "Positie" && Positie != "A" || Positie != "M" ||
-                    Positie != "V" || Positie != "D")
-                {
-                    return "Duid een positie aan.";
-                }
+                //if (columnName == "Positie" && Positie != "A" || Positie != "M" ||
+                //    Positie != "V" || Positie != "D")
+                //{
+                //    return "Duid een positie aan.";
+                //}
                 return ""; ;
             }
         }

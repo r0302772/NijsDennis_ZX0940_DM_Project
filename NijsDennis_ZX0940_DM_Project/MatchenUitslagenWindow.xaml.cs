@@ -35,7 +35,15 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private void btnVorigeGameweek_Click(object sender, RoutedEventArgs e)
         {
-            speeldag--;
+            if (speeldag == 1)
+            {
+                speeldag = 38;
+            }
+            else
+            {
+                speeldag--;
+            }
+
             Resetten();
         }
 
@@ -47,7 +55,15 @@ namespace NijsDennis_ZX0940_DM_Project
 
         private void btnVolgendeGameweek_Click(object sender, RoutedEventArgs e)
         {
-            speeldag++;
+            if (speeldag == 38)
+            {
+                speeldag = 1;
+            }
+            else
+            {
+                speeldag++;
+            }
+
             Resetten();
         }
 
@@ -169,7 +185,7 @@ namespace NijsDennis_ZX0940_DM_Project
                         }
                         else
                         {
-                            MessageBox.Show($"Er is iets misgelopen, '{x.Spelers.VolledigeNaam}' is niet verwijderd.");
+                            MessageBox.Show($"Er is iets misgelopen, de wedstrijdstatistieken van '{x.Spelers.VolledigeNaam}' zijn niet verwijderd.");
                         }
                     }
 
@@ -207,15 +223,11 @@ namespace NijsDennis_ZX0940_DM_Project
 
                         if (x.IsGeldig())
                         {
-                            Spelerstatistiek ss = SpelerstatsSpelerwedstrijdAanpassen(x);
-                            Clubstatistiek cs = ClubstatistiekClubsAanpassen(x);
-
-                            ScoreWedstrijdAanpassen(wedstrijd);
-
                             int ok = DatabaseOperations.AanpassenSpelerWedstrijd(x);
                             if (ok > 0)
                             {
                                 datagridSpelerWedstrijd.ItemsSource = DatabaseOperations.OphalenSpelerWedstrijdViaWedstrijdEnClub(wedstrijd.WedstrijdID, x.Spelers.ClubID);
+                                ScoreWedstrijdAanpassen(wedstrijd);
                             }
                             else
                             {
@@ -232,15 +244,17 @@ namespace NijsDennis_ZX0940_DM_Project
                                 MessageBox.Show($"Er is iets misgelopen '{wedstrijd.ThuisClubs.Clubnaam} - {wedstrijd.UitClubs.Clubnaam}' is niet aangepast.");
                             }
 
+                            Spelerstatistiek ss = SpelerstatsSpelerwedstrijdAanpassen(x);
                             int ok2 = DatabaseOperations.AanpassenSpelerstats(ss);
                             if (ok2 == 0)
                             {
                                 MessageBox.Show($"Er is iets misgelopen de stats van '{x.Spelers.VolledigeNaam}' zijn niet aangepast.");
                             }
 
+                            Clubstatistiek cs = ClubstatistiekClubsAanpassen(x);
                             int ok3 = DatabaseOperations.AanpassenRangschikking(cs);
                             if (ok3 == 0)
-                            { 
+                            {
                                 MessageBox.Show($"Er is iets misgelopen de stats van '{x.Spelers.Clubs.Clubnaam}' zijn niet aangepast.");
                             }
 
